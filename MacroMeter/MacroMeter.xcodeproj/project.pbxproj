@@ -11,7 +11,8 @@
 		EF70D97C24FAB5B80020E360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D97B24FAB5B80020E360 /* SceneDelegate.swift */; };
 		EF70D98324FAB5BC0020E360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF70D98224FAB5BC0020E360 /* Assets.xcassets */; };
 		EF70D98624FAB5BC0020E360 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF70D98424FAB5BC0020E360 /* LaunchScreen.storyboard */; };
-		EF70D98E24FAB5E00020E360 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF70D98D24FAB5E00020E360 /* Main.storyboard */; };
+		EF70D99124FADACB0020E360 /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D98F24FADACB0020E360 /* GetStartedViewController.swift */; };
+		EF70D99224FADACB0020E360 /* GetStartedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF70D99024FADACB0020E360 /* GetStartedViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +22,8 @@
 		EF70D98224FAB5BC0020E360 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF70D98524FAB5BC0020E360 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF70D98724FAB5BC0020E360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EF70D98D24FAB5E00020E360 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EF70D98F24FADACB0020E360 /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
+		EF70D99024FADACB0020E360 /* GetStartedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetStartedViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,12 +58,29 @@
 			children = (
 				EF70D97924FAB5B80020E360 /* AppDelegate.swift */,
 				EF70D97B24FAB5B80020E360 /* SceneDelegate.swift */,
-				EF70D98D24FAB5E00020E360 /* Main.storyboard */,
+				EF70D99324FADAD30020E360 /* ViewControllers */,
 				EF70D98224FAB5BC0020E360 /* Assets.xcassets */,
 				EF70D98424FAB5BC0020E360 /* LaunchScreen.storyboard */,
 				EF70D98724FAB5BC0020E360 /* Info.plist */,
 			);
 			path = MacroMeter;
+			sourceTree = "<group>";
+		};
+		EF70D99324FADAD30020E360 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				EF70D99424FADAE40020E360 /* GetStartedVC */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		EF70D99424FADAE40020E360 /* GetStartedVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF70D98F24FADACB0020E360 /* GetStartedViewController.swift */,
+				EF70D99024FADACB0020E360 /* GetStartedViewController.xib */,
+			);
+			path = GetStartedVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -122,9 +141,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EF70D98E24FAB5E00020E360 /* Main.storyboard in Resources */,
 				EF70D98624FAB5BC0020E360 /* LaunchScreen.storyboard in Resources */,
 				EF70D98324FAB5BC0020E360 /* Assets.xcassets in Resources */,
+				EF70D99224FADACB0020E360 /* GetStartedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +154,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF70D99124FADACB0020E360 /* GetStartedViewController.swift in Sources */,
 				EF70D97A24FAB5B80020E360 /* AppDelegate.swift in Sources */,
 				EF70D97C24FAB5B80020E360 /* SceneDelegate.swift in Sources */,
 			);
