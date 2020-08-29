@@ -6,5 +6,6 @@ target 'MacroMeter' do
   use_frameworks!
 
   # Pods for MacroMeter
+pod 'DropDown', '2.3.2'
 
 end

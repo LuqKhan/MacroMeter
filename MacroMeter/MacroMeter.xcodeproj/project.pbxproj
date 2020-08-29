@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E27557ED4C66817362AEE27D /* Pods_MacroMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716C25234B221BD9586FF021 /* Pods_MacroMeter.framework */; };
 		EF70D97A24FAB5B80020E360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D97924FAB5B80020E360 /* AppDelegate.swift */; };
 		EF70D97C24FAB5B80020E360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D97B24FAB5B80020E360 /* SceneDelegate.swift */; };
 		EF70D98324FAB5BC0020E360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF70D98224FAB5BC0020E360 /* Assets.xcassets */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22597A44B92C73967059E208 /* Pods-MacroMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroMeter.release.xcconfig"; path = "Target Support Files/Pods-MacroMeter/Pods-MacroMeter.release.xcconfig"; sourceTree = "<group>"; };
+		49728B4759CCFD5377EB9D8B /* Pods-MacroMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroMeter.debug.xcconfig"; path = "Target Support Files/Pods-MacroMeter/Pods-MacroMeter.debug.xcconfig"; sourceTree = "<group>"; };
+		716C25234B221BD9586FF021 /* Pods_MacroMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacroMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF70D97624FAB5B80020E360 /* MacroMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF70D97924FAB5B80020E360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF70D97B24FAB5B80020E360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +35,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E27557ED4C66817362AEE27D /* Pods_MacroMeter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A1FFF9D4B034CFC96708398 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49728B4759CCFD5377EB9D8B /* Pods-MacroMeter.debug.xcconfig */,
+				22597A44B92C73967059E208 /* Pods-MacroMeter.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		562BA9B7A5F1B787B038B0F3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				716C25234B221BD9586FF021 /* Pods_MacroMeter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EF70D96D24FAB5B80020E360 = {
 			isa = PBXGroup;
 			children = (
 				EF70D97824FAB5B80020E360 /* MacroMeter */,
 				EF70D97724FAB5B80020E360 /* Products */,
+				4A1FFF9D4B034CFC96708398 /* Pods */,
+				562BA9B7A5F1B787B038B0F3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -90,9 +115,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EF70D98A24FAB5BC0020E360 /* Build configuration list for PBXNativeTarget "MacroMeter" */;
 			buildPhases = (
+				F67B169E204F4B200790A1F1 /* [CP] Check Pods Manifest.lock */,
 				EF70D97224FAB5B80020E360 /* Sources */,
 				EF70D97324FAB5B80020E360 /* Frameworks */,
 				EF70D97424FAB5B80020E360 /* Resources */,
+				D8F19E6A5E5B362D48C7B8A1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -148,6 +175,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D8F19E6A5E5B362D48C7B8A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MacroMeter/Pods-MacroMeter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MacroMeter/Pods-MacroMeter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MacroMeter/Pods-MacroMeter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F67B169E204F4B200790A1F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MacroMeter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EF70D97224FAB5B80020E360 /* Sources */ = {
@@ -290,6 +359,7 @@
 		};
 		EF70D98B24FAB5BC0020E360 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49728B4759CCFD5377EB9D8B /* Pods-MacroMeter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +378,7 @@
 		};
 		EF70D98C24FAB5BC0020E360 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22597A44B92C73967059E208 /* Pods-MacroMeter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
