@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,9 @@
 		EF70D98624FAB5BC0020E360 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF70D98424FAB5BC0020E360 /* LaunchScreen.storyboard */; };
 		EF70D99124FADACB0020E360 /* GetStartedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D98F24FADACB0020E360 /* GetStartedViewController.swift */; };
 		EF70D99224FADACB0020E360 /* GetStartedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF70D99024FADACB0020E360 /* GetStartedViewController.xib */; };
+		EF70D99724FB03050020E360 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D99524FB03040020E360 /* HomeViewController.swift */; };
+		EF70D99824FB03050020E360 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF70D99624FB03040020E360 /* HomeViewController.xib */; };
+		EF70D99B24FB04530020E360 /* MacroCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D99A24FB04530020E360 /* MacroCalculator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		EF70D98724FAB5BC0020E360 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EF70D98F24FADACB0020E360 /* GetStartedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetStartedViewController.swift; sourceTree = "<group>"; };
 		EF70D99024FADACB0020E360 /* GetStartedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GetStartedViewController.xib; sourceTree = "<group>"; };
+		EF70D99524FB03040020E360 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EF70D99624FB03040020E360 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		EF70D99A24FB04530020E360 /* MacroCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroCalculator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +54,6 @@
 				49728B4759CCFD5377EB9D8B /* Pods-MacroMeter.debug.xcconfig */,
 				22597A44B92C73967059E208 /* Pods-MacroMeter.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -83,6 +88,7 @@
 			children = (
 				EF70D97924FAB5B80020E360 /* AppDelegate.swift */,
 				EF70D97B24FAB5B80020E360 /* SceneDelegate.swift */,
+				EF70D99C24FB045E0020E360 /* Models */,
 				EF70D99324FADAD30020E360 /* ViewControllers */,
 				EF70D98224FAB5BC0020E360 /* Assets.xcassets */,
 				EF70D98424FAB5BC0020E360 /* LaunchScreen.storyboard */,
@@ -95,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				EF70D99424FADAE40020E360 /* GetStartedVC */,
+				EF70D99924FB030C0020E360 /* HomeVC */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -106,6 +113,23 @@
 				EF70D99024FADACB0020E360 /* GetStartedViewController.xib */,
 			);
 			path = GetStartedVC;
+			sourceTree = "<group>";
+		};
+		EF70D99924FB030C0020E360 /* HomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF70D99524FB03040020E360 /* HomeViewController.swift */,
+				EF70D99624FB03040020E360 /* HomeViewController.xib */,
+			);
+			path = HomeVC;
+			sourceTree = "<group>";
+		};
+		EF70D99C24FB045E0020E360 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				EF70D99A24FB04530020E360 /* MacroCalculator.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,6 +195,7 @@
 				EF70D98624FAB5BC0020E360 /* LaunchScreen.storyboard in Resources */,
 				EF70D98324FAB5BC0020E360 /* Assets.xcassets in Resources */,
 				EF70D99224FADACB0020E360 /* GetStartedViewController.xib in Resources */,
+				EF70D99824FB03050020E360 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,7 +250,9 @@
 			files = (
 				EF70D99124FADACB0020E360 /* GetStartedViewController.swift in Sources */,
 				EF70D97A24FAB5B80020E360 /* AppDelegate.swift in Sources */,
+				EF70D99B24FB04530020E360 /* MacroCalculator.swift in Sources */,
 				EF70D97C24FAB5B80020E360 /* SceneDelegate.swift in Sources */,
+				EF70D99724FB03050020E360 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

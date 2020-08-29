@@ -21,6 +21,10 @@ class GetStartedViewController: UIViewController {
     @IBOutlet weak var exerciseFrequencyButton: UIButton!
     @IBOutlet weak var heightTextField: UITextField!
     @IBOutlet weak var ageTextField: UITextField!
+    let weightLossGoalsDropDown = DropDown()
+    let exerciseFrequencyDropDown = DropDown()
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +32,21 @@ class GetStartedViewController: UIViewController {
     }
     
     func prepareUI() {
+    //do the same drop down for exercise frequency
+        exerciseFrequencyDropDown.textColor = .white
+        exerciseFrequencyDropDown.backgroundColor = .black
+        exerciseFrequencyDropDown.direction = .bottom
+        exerciseFrequencyDropDown.selectionBackgroundColor = .black
+        exerciseFrequencyDropDown.anchorView = self.exerciseFrequencyButton
+        exerciseFrequencyDropDown.dataSource = ["0 days", "1-2 days", "3-4 days", "5-6 days", "7 days"]
+        
+        
+        weightLossGoalsDropDown.textColor = .white
+        weightLossGoalsDropDown.backgroundColor = .black
+        weightLossGoalsDropDown.direction = .bottom
+        weightLossGoalsDropDown.selectionBackgroundColor = .black
+        weightLossGoalsDropDown.anchorView = self.weightlossGoalButton
+        weightLossGoalsDropDown.dataSource = ["Aggressive Weight Loss", "Moderate Weight Loss", "Weight Loss", "Maintain Weight", "Moderate Weight Gain", "Aggressive Weight Gain"]
         
         
         
@@ -72,12 +91,28 @@ class GetStartedViewController: UIViewController {
     }
     
     @IBAction func exerciseFrequencyButtonTapped(_ sender: UIButton) {
+        self.weightLossGoalsDropDown.hide()
+        self.exerciseFrequencyDropDown.show()
+        
+        self.exerciseFrequencyDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+           sender.setTitle(item, for: .normal)
+            
+        }
     }
     
     @IBAction func weightlossGoalTapped(_ sender: UIButton) {
+        self.exerciseFrequencyDropDown.hide()
+        self.weightLossGoalsDropDown.show()
         
+        self.weightLossGoalsDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            sender.setTitle(item, for: .normal)
+        }
     }
     @IBAction func doneButtonTapped(_ sender: UIButton) {
+        let homeVC = HomeViewController()
+        homeVC.modalPresentationStyle = .overFullScreen
+        self.present(homeVC, animated: true, completion: nil)
+        
     }
     
 }
