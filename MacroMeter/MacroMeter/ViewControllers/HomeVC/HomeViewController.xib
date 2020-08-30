@@ -9,6 +9,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="MacroMeter" customModuleProvider="target">
             <connections>
+                <outlet property="caloriesLabel" destination="IKh-te-Fhp" id="HQd-jd-meO"/>
+                <outlet property="carbsLabel" destination="ge6-iu-Kt4" id="DLS-m1-Og9"/>
+                <outlet property="fatLabel" destination="6Tl-xI-zuW" id="U3x-53-4Ta"/>
+                <outlet property="logoImage" destination="5yJ-bb-5sY" id="urD-oc-KFv"/>
+                <outlet property="mealBreakdownLabel" destination="UwZ-fQ-eub" id="H2S-gk-geY"/>
+                <outlet property="mealFrequencyButton" destination="UAs-PL-FQA" id="dFq-Mp-Hpk"/>
+                <outlet property="menuButton" destination="3Km-kP-4AF" id="a7i-eY-ZNS"/>
+                <outlet property="proteinLabel" destination="t9M-ew-fHY" id="1rk-zh-9NO"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -47,8 +55,14 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbs" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAI-n2-QlY">
-                    <rect key="frame" x="64" y="422" width="72" height="22"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tl-xI-zuW">
+                    <rect key="frame" x="259" y="497" width="89" height="22"/>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carbohydrates" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAI-n2-QlY">
+                    <rect key="frame" x="64" y="422" width="150" height="22"/>
                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -59,9 +73,9 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MacrometerLogo2" translatesAutoresizingMaskIntoConstraints="NO" id="5yJ-bb-5sY">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="5yJ-bb-5sY">
                     <rect key="frame" x="344" y="152" width="42" height="36"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjv-d9-I8T">
@@ -86,8 +100,28 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45g" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tl-xI-zuW">
-                    <rect key="frame" x="259" y="497" width="89" height="22"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UAs-PL-FQA">
+                    <rect key="frame" x="100" y="576" width="214" height="41"/>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                    <state key="normal" title="Meal Breakdown">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="mealFreqTapped:" destination="-1" eventType="touchUpInside" id="blw-WC-Pfv"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Km-kP-4AF">
+                    <rect key="frame" x="20" y="56" width="79" height="41"/>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                    <state key="normal" title="Menu">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="menuTapped:" destination="-1" eventType="touchUpInside" id="TAj-av-9iV"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UwZ-fQ-eub">
+                    <rect key="frame" x="81" y="648" width="253" height="155"/>
                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -100,6 +134,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="sdk-DE-Xgf" secondAttribute="bottom" constant="671" id="4fQ-rg-fce"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6Tl-xI-zuW" secondAttribute="trailing" constant="66" id="5yg-ch-xvz"/>
                 <constraint firstItem="5yJ-bb-5sY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="344" id="6a6-mj-Wmo"/>
+                <constraint firstItem="UAs-PL-FQA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="9gI-hq-1aN"/>
                 <constraint firstItem="6Tl-xI-zuW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="259" id="9jy-gM-1YP"/>
                 <constraint firstItem="IKh-te-Fhp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="259" id="ArT-gg-qAb"/>
                 <constraint firstItem="Igf-WP-q3V" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="64" id="B2g-mh-3HT"/>
@@ -109,6 +144,8 @@
                 <constraint firstItem="aAI-n2-QlY" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="64" id="EFv-dj-l7C"/>
                 <constraint firstItem="5yJ-bb-5sY" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="108" id="EVw-db-1Fm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="t9M-ew-fHY" secondAttribute="trailing" constant="66" id="F7W-mI-64s"/>
+                <constraint firstItem="UwZ-fQ-eub" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="648" id="FUR-nD-T36"/>
+                <constraint firstAttribute="bottom" secondItem="UAs-PL-FQA" secondAttribute="bottom" constant="279" id="FcV-U8-3te"/>
                 <constraint firstItem="qBy-bj-q5v" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="64" id="Fci-vS-3fz"/>
                 <constraint firstItem="L3K-A8-vxR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="446" id="GRT-IG-hPG"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="IKh-te-Fhp" secondAttribute="trailing" constant="66" id="H0p-wM-VmM"/>
@@ -119,13 +156,17 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3xM-Kh-qxZ" secondAttribute="trailing" constant="266" id="O6Q-C4-myM"/>
                 <constraint firstAttribute="bottom" secondItem="ge6-iu-Kt4" secondAttribute="bottom" constant="452" id="Po8-PA-22a"/>
                 <constraint firstItem="Igf-WP-q3V" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="339" id="RcT-Xv-Gus"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UwZ-fQ-eub" secondAttribute="trailing" constant="80" id="SH6-ZU-qy2"/>
+                <constraint firstItem="UwZ-fQ-eub" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="81" id="SMU-WJ-fMT"/>
                 <constraint firstItem="aAI-n2-QlY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="422" id="SWA-k4-rc2"/>
                 <constraint firstAttribute="bottom" secondItem="aAI-n2-QlY" secondAttribute="bottom" constant="452" id="TQ8-wT-d7b"/>
                 <constraint firstAttribute="bottom" secondItem="yK2-yX-awe" secondAttribute="bottom" constant="375" id="Wil-rj-yIO"/>
                 <constraint firstItem="8mj-6d-Bay" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="497" id="WsL-xj-Pb5"/>
                 <constraint firstAttribute="bottom" secondItem="fjv-d9-I8T" secondAttribute="bottom" constant="607" id="XUP-WS-ekf"/>
                 <constraint firstItem="6Tl-xI-zuW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="497" id="XcS-lY-86l"/>
+                <constraint firstAttribute="bottom" secondItem="3Km-kP-4AF" secondAttribute="bottom" constant="799" id="Xkp-Nr-yTZ"/>
                 <constraint firstItem="sdk-DE-Xgf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="105" id="YHI-Wy-B4m"/>
+                <constraint firstItem="3Km-kP-4AF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="YYQ-Ma-VV1"/>
                 <constraint firstAttribute="trailing" secondItem="L3K-A8-vxR" secondAttribute="trailing" constant="66" id="ZaO-25-qw9"/>
                 <constraint firstItem="3xM-Kh-qxZ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="64" id="Znx-on-H8Y"/>
                 <constraint firstAttribute="trailing" secondItem="yK2-yX-awe" secondAttribute="trailing" constant="66" id="Zyu-rN-5qk"/>
@@ -135,11 +176,16 @@
                 <constraint firstAttribute="bottom" secondItem="L3K-A8-vxR" secondAttribute="bottom" constant="449" id="ckx-fQ-Fd4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Igf-WP-q3V" secondAttribute="trailing" constant="278" id="ev1-Hz-BQQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5yJ-bb-5sY" secondAttribute="trailing" constant="28" id="g4E-sm-sNJ"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aAI-n2-QlY" secondAttribute="trailing" constant="278" id="ggp-3q-n3N"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="aAI-n2-QlY" secondAttribute="trailing" constant="200" id="ggp-3q-n3N"/>
+                <constraint firstItem="3Km-kP-4AF" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="hEH-sw-KbH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UAs-PL-FQA" secondAttribute="trailing" constant="100" id="j9G-Dq-NqN"/>
                 <constraint firstAttribute="bottom" secondItem="6Tl-xI-zuW" secondAttribute="bottom" constant="377" id="kyS-Cg-E3y"/>
                 <constraint firstItem="8mj-6d-Bay" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="64" id="lIF-SF-eYp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UwZ-fQ-eub" secondAttribute="bottom" constant="59" id="mD4-Ya-q2L"/>
                 <constraint firstAttribute="trailing" secondItem="sdk-DE-Xgf" secondAttribute="trailing" constant="66" id="mJd-fm-EH2"/>
+                <constraint firstItem="UAs-PL-FQA" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="576" id="mLI-eJ-RDa"/>
                 <constraint firstAttribute="bottom" secondItem="3xM-Kh-qxZ" secondAttribute="bottom" constant="609" id="nij-DB-lym"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3Km-kP-4AF" secondAttribute="trailing" constant="315" id="oIi-u1-Syg"/>
                 <constraint firstItem="fjv-d9-I8T" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="64" id="ovZ-Mh-IDC"/>
                 <constraint firstItem="yK2-yX-awe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="64" id="pFO-vl-USb"/>
                 <constraint firstItem="sdk-DE-Xgf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rPX-E3-CHE"/>
@@ -157,6 +203,6 @@
         </view>
     </objects>
     <resources>
-        <image name="MacrometerLogo2" width="100" height="100"/>
+        <image name="Group" width="40" height="16"/>
     </resources>
 </document>

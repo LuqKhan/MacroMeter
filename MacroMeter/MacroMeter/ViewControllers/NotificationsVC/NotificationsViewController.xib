@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NotificationsViewController" customModule="MacroMeter" customModuleProvider="target">
+            <connections>
+                <outlet property="doneButton" destination="qCQ-Ec-cvM" id="9H6-Wx-JEB"/>
+                <outlet property="notificationSwitch" destination="Cjj-Tb-BvT" id="kqf-F2-oho"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Would you like to be notified before every meal?" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="61i-Zm-yXU">
+                    <rect key="frame" x="43" y="82" width="328" height="129"/>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="25"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Cjj-Tb-BvT">
+                    <rect key="frame" x="183" y="208" width="49" height="31"/>
+                    <connections>
+                        <action selector="notificationSwitched:" destination="-1" eventType="valueChanged" id="op5-MZ-DaR"/>
+                    </connections>
+                </switch>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qCQ-Ec-cvM">
+                    <rect key="frame" x="100" y="788" width="214" height="41"/>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="doneButtonTapped:" destination="-1" eventType="touchUpInside" id="frR-X1-TiP"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="qCQ-Ec-cvM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="788" id="0X7-Ww-xkr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="qCQ-Ec-cvM" secondAttribute="bottom" constant="33" id="2vD-S0-6v5"/>
+                <constraint firstItem="qCQ-Ec-cvM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="7wl-bw-ouC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qCQ-Ec-cvM" secondAttribute="trailing" constant="100" id="9KY-aH-HfN"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cjj-Tb-BvT" secondAttribute="trailing" constant="184" id="DBR-Ah-did"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="61i-Zm-yXU" secondAttribute="bottom" constant="651" id="Est-2N-fTG"/>
+                <constraint firstItem="61i-Zm-yXU" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="38" id="GF4-VL-dxh"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="Cjj-Tb-BvT" secondAttribute="bottom" constant="623" id="Nwv-WF-rPr"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="61i-Zm-yXU" secondAttribute="trailing" constant="43" id="OOZ-N1-iLa"/>
+                <constraint firstItem="Cjj-Tb-BvT" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="208" id="eXj-ca-XcJ"/>
+                <constraint firstItem="Cjj-Tb-BvT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="183" id="qkq-nf-9nk"/>
+                <constraint firstItem="61i-Zm-yXU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="43" id="zU4-xa-PL5"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="122.54464285714285"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="EditViewController" customModule="MacroMeter" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iLB-ug-rhW">
+                    <rect key="frame" x="100" y="439" width="214" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="eXR-Eg-v9K"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                    <state key="normal" title="Weightloss Goal">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6pq-gL-0uP">
+                    <rect key="frame" x="114" y="794" width="186" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="X9u-1Y-FKS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pfD-Jg-va4">
+                    <rect key="frame" x="114" y="240" width="186" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="tsw-BZ-zX8"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                    <state key="normal" title="Exercise Frequency">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="6pq-gL-0uP" secondAttribute="bottom" constant="27" id="0HX-cb-dqH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="iLB-ug-rhW" secondAttribute="trailing" constant="100" id="0II-iS-GpV"/>
+                <constraint firstItem="iLB-ug-rhW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="2rB-PC-5Qf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pfD-Jg-va4" secondAttribute="trailing" constant="114" id="Ibw-Cc-ZD2"/>
+                <constraint firstItem="6pq-gL-0uP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="114" id="M3A-S5-qXh"/>
+                <constraint firstAttribute="bottom" secondItem="pfD-Jg-va4" secondAttribute="bottom" constant="615" id="d2y-rI-6no"/>
+                <constraint firstAttribute="bottom" secondItem="iLB-ug-rhW" secondAttribute="bottom" constant="416" id="dJV-3e-BwB"/>
+                <constraint firstItem="pfD-Jg-va4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="114" id="eVU-9V-hsP"/>
+                <constraint firstItem="6pq-gL-0uP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="794" id="ftc-4H-MKU"/>
+                <constraint firstItem="pfD-Jg-va4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="196" id="ihN-Qx-Bau"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="6pq-gL-0uP" secondAttribute="trailing" constant="114" id="jRp-69-1fx"/>
+                <constraint firstItem="iLB-ug-rhW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="439" id="tGl-vz-wE3"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="139" y="101"/>
+        </view>
+    </objects>
+</document>

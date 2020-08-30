@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		E27557ED4C66817362AEE27D /* Pods_MacroMeter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 716C25234B221BD9586FF021 /* Pods_MacroMeter.framework */; };
+		EF2237C324FB393E00CB2573 /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2237C124FB393E00CB2573 /* NotificationsViewController.swift */; };
+		EF2237C424FB393E00CB2573 /* NotificationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2237C224FB393E00CB2573 /* NotificationsViewController.xib */; };
+		EF2237C824FB4D2000CB2573 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF2237C624FB4D2000CB2573 /* EditViewController.swift */; };
+		EF2237C924FB4D2000CB2573 /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF2237C724FB4D2000CB2573 /* EditViewController.xib */; };
 		EF70D97A24FAB5B80020E360 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D97924FAB5B80020E360 /* AppDelegate.swift */; };
 		EF70D97C24FAB5B80020E360 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D97B24FAB5B80020E360 /* SceneDelegate.swift */; };
 		EF70D98324FAB5BC0020E360 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF70D98224FAB5BC0020E360 /* Assets.xcassets */; };
@@ -23,6 +27,10 @@
 		22597A44B92C73967059E208 /* Pods-MacroMeter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroMeter.release.xcconfig"; path = "Target Support Files/Pods-MacroMeter/Pods-MacroMeter.release.xcconfig"; sourceTree = "<group>"; };
 		49728B4759CCFD5377EB9D8B /* Pods-MacroMeter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MacroMeter.debug.xcconfig"; path = "Target Support Files/Pods-MacroMeter/Pods-MacroMeter.debug.xcconfig"; sourceTree = "<group>"; };
 		716C25234B221BD9586FF021 /* Pods_MacroMeter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MacroMeter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF2237C124FB393E00CB2573 /* NotificationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
+		EF2237C224FB393E00CB2573 /* NotificationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationsViewController.xib; sourceTree = "<group>"; };
+		EF2237C624FB4D2000CB2573 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		EF2237C724FB4D2000CB2573 /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		EF70D97624FAB5B80020E360 /* MacroMeter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MacroMeter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF70D97924FAB5B80020E360 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EF70D97B24FAB5B80020E360 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +73,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EF2237C524FB394800CB2573 /* NotificationsVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF2237C124FB393E00CB2573 /* NotificationsViewController.swift */,
+				EF2237C224FB393E00CB2573 /* NotificationsViewController.xib */,
+			);
+			path = NotificationsVC;
+			sourceTree = "<group>";
+		};
+		EF2237CA24FB4D2700CB2573 /* EditVC */ = {
+			isa = PBXGroup;
+			children = (
+				EF2237C624FB4D2000CB2573 /* EditViewController.swift */,
+				EF2237C724FB4D2000CB2573 /* EditViewController.xib */,
+			);
+			path = EditVC;
+			sourceTree = "<group>";
+		};
 		EF70D96D24FAB5B80020E360 = {
 			isa = PBXGroup;
 			children = (
@@ -102,6 +128,8 @@
 			children = (
 				EF70D99424FADAE40020E360 /* GetStartedVC */,
 				EF70D99924FB030C0020E360 /* HomeVC */,
+				EF2237C524FB394800CB2573 /* NotificationsVC */,
+				EF2237CA24FB4D2700CB2573 /* EditVC */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -192,7 +220,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF2237C924FB4D2000CB2573 /* EditViewController.xib in Resources */,
 				EF70D98624FAB5BC0020E360 /* LaunchScreen.storyboard in Resources */,
+				EF2237C424FB393E00CB2573 /* NotificationsViewController.xib in Resources */,
 				EF70D98324FAB5BC0020E360 /* Assets.xcassets in Resources */,
 				EF70D99224FADACB0020E360 /* GetStartedViewController.xib in Resources */,
 				EF70D99824FB03050020E360 /* HomeViewController.xib in Resources */,
@@ -251,8 +281,10 @@
 				EF70D99124FADACB0020E360 /* GetStartedViewController.swift in Sources */,
 				EF70D97A24FAB5B80020E360 /* AppDelegate.swift in Sources */,
 				EF70D99B24FB04530020E360 /* MacroCalculator.swift in Sources */,
+				EF2237C324FB393E00CB2573 /* NotificationsViewController.swift in Sources */,
 				EF70D97C24FAB5B80020E360 /* SceneDelegate.swift in Sources */,
 				EF70D99724FB03050020E360 /* HomeViewController.swift in Sources */,
+				EF2237C824FB4D2000CB2573 /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
