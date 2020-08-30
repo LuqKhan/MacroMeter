@@ -50,13 +50,7 @@ class HomeViewController: UIViewController {
             
         
         
-        
-        mealFrequencyDropDown.textColor = .white
-        mealFrequencyDropDown.backgroundColor = .black
-        mealFrequencyDropDown.direction = .bottom
-        mealFrequencyDropDown.selectionBackgroundColor = .black
-        self.mealFrequencyDropDown.anchorView = self.mealFrequencyButton
-        mealFrequencyDropDown.dataSource = ["4 meals a day", "3 meals a day", "3 meals and 2 snacks a day"]
+    
         
         
         menuDropDown.textColor = .white
@@ -72,9 +66,6 @@ class HomeViewController: UIViewController {
         self.menuButton.layer.cornerRadius = 10
         self.menuButton.layer.borderWidth = 1
         self.menuButton.layer.borderColor = UIColor.white.cgColor
-        self.mealFrequencyButton.layer.cornerRadius = 10
-        self.mealFrequencyButton.layer.borderWidth = 1
-        self.mealFrequencyButton.layer.borderColor = UIColor.white.cgColor
     }
     @IBAction func menuTapped(_ sender: UIButton) {
         self.menuDropDown.show()
@@ -92,6 +83,7 @@ class HomeViewController: UIViewController {
                 
             } else {
                 let breakdownVC = MealBreakdownViewController()
+                breakdownVC.macroCalculator = self.macroCalculator
                 breakdownVC.modalPresentationStyle = .overFullScreen
                 self.present(breakdownVC, animated: true, completion: nil)
             }

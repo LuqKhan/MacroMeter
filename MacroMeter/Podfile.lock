@@ -1,16 +1,20 @@
 PODS:
   - DropDown (2.3.2)
+  - PieCharts (0.0.7)
 
 DEPENDENCIES:
   - DropDown (= 2.3.2)
+  - PieCharts
 
 SPEC REPOS:
   trunk:
     - DropDown
+    - PieCharts
 
 SPEC CHECKSUMS:
   DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
+  PieCharts: 30e50dfa7dc19e5b84e9878d32089673ef5d0453
 
-PODFILE CHECKSUM: 2e6e4a4536f7285d345f26fc6ae59a41e1e5c71d
+PODFILE CHECKSUM: 6b4cc98a0df62f33f3cea6eab8c2e21a89ff6324
 
 COCOAPODS: 1.9.3
