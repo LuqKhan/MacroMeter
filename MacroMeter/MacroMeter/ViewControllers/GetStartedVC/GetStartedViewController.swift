@@ -218,7 +218,7 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
                                        self.present(uialert, animated: true, completion: nil)
                 } else {
                     
-           // UserDefaults.standard.set(true, forKey: "didSetup")
+            UserDefaults.standard.set(true, forKey: "didSetup")
                     if let height = heightTextField.text,
                         let weight = weightTextField.text,
                         let age = ageTextField.text,
@@ -234,6 +234,19 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
                     let macroCalculator = MacroCalculator(height: height, age: age, gender: selectedGender , weight: weight, exerciseFreq: exercisefreq, goal: goal)
                     
                 let homeVC = HomeViewController()
+//                        UserDefaults.standard.removeObject(forKey: "gender")
+//                        UserDefaults.standard.removeObject(forKey: "age")
+//                        UserDefaults.standard.removeObject(forKey: "height")
+//                        UserDefaults.standard.removeObject(forKey: "weight")
+//                        UserDefaults.standard.removeObject(forKey: "exerciseFreq")
+//                        UserDefaults.standard.removeObject(forKey: "goal")
+                        
+                        UserDefaults.standard.set(macroCalculator.gender, forKey: "gender")
+                        UserDefaults.standard.set(macroCalculator.age, forKey: "age")
+                        UserDefaults.standard.set(macroCalculator.height, forKey: "height")
+                        UserDefaults.standard.set(macroCalculator.weight, forKey: "weight")
+                        UserDefaults.standard.set(macroCalculator.exerciseFreq, forKey: "exerciseFreq")
+                        UserDefaults.standard.set(macroCalculator.goal, forKey: "goal")
                         homeVC.macroCalculator = nil
                         homeVC.macroCalculator = macroCalculator
                       homeVC.modalPresentationStyle = .overFullScreen
