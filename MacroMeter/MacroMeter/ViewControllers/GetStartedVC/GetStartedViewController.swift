@@ -9,7 +9,7 @@
 import UIKit
 import DropDown
 
-class GetStartedViewController: UIViewController {
+class GetStartedViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var maleButton: UIButton!
     
@@ -23,7 +23,8 @@ class GetStartedViewController: UIViewController {
     @IBOutlet weak var ageTextField: UITextField!
     let weightLossGoalsDropDown = DropDown()
     let exerciseFrequencyDropDown = DropDown()
-    
+    var maleSelected = false
+    var femaleSelected = false
     
     
     override func viewDidLoad() {
@@ -75,8 +76,75 @@ class GetStartedViewController: UIViewController {
         self.doneButton.layer.borderColor = UIColor.white.cgColor
         self.doneButton.layer.cornerRadius = 10
     }
+    
+    private func verifyAge(age: String) -> Bool {
+        //tag1
+        if age.isInt && age.count <= 3 {
+            return true
+        }
+        return false
+    }
+    
+    private func verifyHeight(height: String) -> Bool {
+        //tag2
+        if height.count == 3 {
+            for character in height {
+                if character.isPunctuation {
+                    guard let first = height.first, let last = height.last else {return false}
+                    
+                    if first.isNumber && last.isNumber {
+                        return true
+                    }
+                }
+            }
+    }
+        return false
+}
+    
+    private func verifyWeight(weight: String) -> Bool {
+        //tag3
+        if weight.isInt && weight.count <= 3 {
+            return true
+        }
+        
+        return false
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if let text = textField.text {
+            
+            if textField.tag == 1 {
+                if !verifyAge(age: text) && !text.isEmpty {
+                    let uialert = UIAlertController(title: "Please Input Correct Age", message: nil, preferredStyle:.alert)
+                    let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    uialert.addAction(alertAction)
+                    self.present(uialert, animated: true, completion: nil)
+                }
+            } else if textField.tag == 2 {
+                if !verifyHeight(height: text) && !text.isEmpty {
+                    let uialert = UIAlertController(title: "Please Input Correct Height", message: nil, preferredStyle:.alert)
+                    let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    uialert.addAction(alertAction)
+                    self.present(uialert, animated: true, completion: nil)
+                }
+            } else if textField.tag == 3 {
+                if !verifyWeight(weight: text) && !text.isEmpty {
+                    let uialert = UIAlertController(title: "Please Input Correct Weight", message: nil, preferredStyle:.alert)
+                    let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    uialert.addAction(alertAction)
+                    self.present(uialert, animated: true, completion: nil)
+                }
+                
+            }
+        }
+        
+    }
+    
 
     @IBAction func muleButtonTapped(_ sender: UIButton) {
+        self.maleSelected = true
+        self.femaleSelected = false
         let circleImage = UIImage.init(systemName: "circle")
         self.femaleButton.setImage(circleImage, for: .normal)
         let image = UIImage.init(systemName: "largecircle.fill.circle")
@@ -84,6 +152,8 @@ class GetStartedViewController: UIViewController {
     }
     
     @IBAction func femaleButtonTapped(_ sender: UIButton) {
+        self.femaleSelected = true
+        self.maleSelected = false
         let circleImage = UIImage.init(systemName: "circle")
         self.maleButton.setImage(circleImage, for: .normal)
         let image = UIImage.init(systemName: "largecircle.fill.circle")
@@ -109,10 +179,47 @@ class GetStartedViewController: UIViewController {
         }
     }
     @IBAction func doneButtonTapped(_ sender: UIButton) {
-        let homeVC = HomeViewController()
-        homeVC.modalPresentationStyle = .overFullScreen
-        self.present(homeVC, animated: true, completion: nil)
+        if let age = self.ageTextField.text, let weight = self.weightTextField.text, let height = self.heightTextField.text {
+            if age.isEmpty ||
+                weight.isEmpty ||
+                height.isEmpty ||
+                self.exerciseFrequencyButton.titleLabel?.text == "Exercise Frequency" ||
+                self.weightlossGoalButton.titleLabel?.text == "Weightloss Goal" {
+                if self.maleSelected == false &&
+                self.femaleSelected == false {
+                    let uialert = UIAlertController(title: "Please Input Required Information", message: nil, preferredStyle:.alert)
+                    let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    uialert.addAction(alertAction)
+                    self.present(uialert, animated: true, completion: nil)
+                } else if self.maleSelected == true || self.femaleSelected == true {
+                    let uialert = UIAlertController(title: "Please Input Required Information", message: nil, preferredStyle:.alert)
+                                       let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                                       uialert.addAction(alertAction)
+                                       self.present(uialert, animated: true, completion: nil)
+                }
+                       
+            } else {
+                if self.maleSelected == false && self.femaleSelected == false {
+                    let uialert = UIAlertController(title: "Please Input Required Information", message: nil, preferredStyle:.alert)
+                                       let alertAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                                       uialert.addAction(alertAction)
+                                       self.present(uialert, animated: true, completion: nil)
+                } else {
+                    
+                    
+                let homeVC = HomeViewController()
+                      homeVC.modalPresentationStyle = .overFullScreen
+                      self.present(homeVC, animated: true, completion: nil)
+            }
+            }
+        }
         
     }
     
+}
+
+extension String {
+    var isInt: Bool {
+        return Int(self) != nil
+    }
 }
