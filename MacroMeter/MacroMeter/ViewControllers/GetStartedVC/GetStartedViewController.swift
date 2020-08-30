@@ -206,7 +206,7 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
                                        self.present(uialert, animated: true, completion: nil)
                 } else {
                     
-                    
+            UserDefaults.standard.set(true, forKey: "didSetup")
                 let homeVC = HomeViewController()
                       homeVC.modalPresentationStyle = .overFullScreen
                       self.present(homeVC, animated: true, completion: nil)

@@ -20,10 +20,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         
         window = UIWindow(windowScene: scene)
+        let didSetup = UserDefaults.standard.object(forKey: "didSetup") as? Bool ?? false
         
-        let getStartedVC = GetStartedViewController()
-        window?.rootViewController = getStartedVC
-        window?.makeKeyAndVisible()
+        if didSetup {
+            let homeVC = HomeViewController()
+            window?.rootViewController = homeVC
+            window?.makeKeyAndVisible()
+        } else {
+            let getStartedVC = GetStartedViewController()
+                   window?.rootViewController = getStartedVC
+                   window?.makeKeyAndVisible()
+        }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
