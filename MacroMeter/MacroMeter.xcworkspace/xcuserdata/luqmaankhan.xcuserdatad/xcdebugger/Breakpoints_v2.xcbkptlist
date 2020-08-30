@@ -14,8 +14,8 @@
             filePath = "MacroMeter/ViewControllers/GetStartedVC/GetStartedViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "183"
-            endingLineNumber = "183"
+            startingLineNumber = "195"
+            endingLineNumber = "195"
             landmarkName = "doneButtonTapped(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,8 +30,8 @@
             filePath = "MacroMeter/ViewControllers/GetStartedVC/GetStartedViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "textFieldDidEndEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +46,8 @@
             filePath = "MacroMeter/ViewControllers/GetStartedVC/GetStartedViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
             landmarkName = "verifyWeight(weight:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -98,6 +98,116 @@
             endingLineNumber = "23"
             landmarkName = "scene(_:willConnectTo:options:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "78FD4259-9192-4C4D-B591-67150BDE83C5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroMeter/Models/MacroCalculator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "calculateHeight(height:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2797E2A7-3086-4A1B-8950-BF948508D7A8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroMeter/Models/MacroCalculator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "init(height:age:gender:weight:exerciseFreq:goal:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71ACDFD9-04C1-4480-A53D-2BA0AF340C2B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MacroMeter/Models/MacroCalculator.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "calculateTDEE(daysPerWeekofExercise:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "71ACDFD9-04C1-4480-A53D-2BA0AF340C2B - e525420bedbf236e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroMeter.MacroCalculator.calculateTDEE(daysPerWeekofExercise: Swift.String) -&gt; Swift.Double"
+                  moduleName = "MacroMeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luqmaankhan/Desktop/MacroMeter/MacroMeter/MacroMeter/Models/MacroCalculator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "413">
+               </Location>
+               <Location
+                  uuid = "71ACDFD9-04C1-4480-A53D-2BA0AF340C2B - e525420bedbf236e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroMeter.MacroCalculator.calculateTDEE(daysPerWeekofExercise: Swift.String) -&gt; Swift.Double"
+                  moduleName = "MacroMeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luqmaankhan/Desktop/MacroMeter/MacroMeter/MacroMeter/Models/MacroCalculator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "639">
+               </Location>
+               <Location
+                  uuid = "71ACDFD9-04C1-4480-A53D-2BA0AF340C2B - e525420bedbf236e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroMeter.MacroCalculator.calculateTDEE(daysPerWeekofExercise: Swift.String) -&gt; Swift.Double"
+                  moduleName = "MacroMeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luqmaankhan/Desktop/MacroMeter/MacroMeter/MacroMeter/Models/MacroCalculator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "865">
+               </Location>
+               <Location
+                  uuid = "71ACDFD9-04C1-4480-A53D-2BA0AF340C2B - e525420bedbf236e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "MacroMeter.MacroCalculator.calculateTDEE(daysPerWeekofExercise: Swift.String) -&gt; Swift.Double"
+                  moduleName = "MacroMeter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/luqmaankhan/Desktop/MacroMeter/MacroMeter/MacroMeter/Models/MacroCalculator.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "1091">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -13,6 +13,7 @@
                 <outlet property="doneButton" destination="npI-pq-fH6" id="wEb-kp-toW"/>
                 <outlet property="exerciseFrequencyButton" destination="8zp-Jv-xlj" id="1u5-ld-n3a"/>
                 <outlet property="femaleButton" destination="Hox-Ou-Mzw" id="wmE-Ci-Abx"/>
+                <outlet property="getStarted" destination="GdD-ee-DgH" id="Zka-OQ-WZW"/>
                 <outlet property="heightTextField" destination="xT4-LI-cHO" id="Mav-qT-PVl"/>
                 <outlet property="maleButton" destination="vDi-wT-57u" id="lc5-0W-2rS"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

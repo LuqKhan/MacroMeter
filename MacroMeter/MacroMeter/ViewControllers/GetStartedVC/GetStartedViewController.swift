@@ -10,7 +10,8 @@ import UIKit
 import DropDown
 
 class GetStartedViewController: UIViewController, UITextFieldDelegate {
-
+    @IBOutlet weak var getStarted: UILabel!
+    var edit: Bool = false
     @IBOutlet weak var maleButton: UIButton!
     
     @IBOutlet weak var femaleButton: UIButton!
@@ -29,10 +30,16 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if self.edit {
+            self.getStarted.text = "Edit"
+        }
        prepareUI()
     }
     
     func prepareUI() {
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.tapped(UITapGesture:)))
+              self.view.addGestureRecognizer(tapGesture)
     //do the same drop down for exercise frequency
         exerciseFrequencyDropDown.textColor = .white
         exerciseFrequencyDropDown.backgroundColor = .black
@@ -75,6 +82,11 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
         self.doneButton.layer.borderWidth = 1
         self.doneButton.layer.borderColor = UIColor.white.cgColor
         self.doneButton.layer.cornerRadius = 10
+    }
+    
+    @objc func tapped(UITapGesture: UITapGestureRecognizer) {
+        self.exerciseFrequencyDropDown.hide()
+        self.weightLossGoalsDropDown.hide()
     }
     
     private func verifyAge(age: String) -> Bool {
@@ -206,12 +218,29 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
                                        self.present(uialert, animated: true, completion: nil)
                 } else {
                     
-            UserDefaults.standard.set(true, forKey: "didSetup")
+           // UserDefaults.standard.set(true, forKey: "didSetup")
+                    if let height = heightTextField.text,
+                        let weight = weightTextField.text,
+                        let age = ageTextField.text,
+                        let goal = self.weightlossGoalButton.titleLabel?.text,
+                        let exercisefreq = self.exerciseFrequencyButton.titleLabel?.text {
+                    
+                        var selectedGender = ""
+                        if self.maleSelected == true {
+                            selectedGender = "Male"
+                        } else {
+                            selectedGender = "Female"
+                        }
+                    let macroCalculator = MacroCalculator(height: height, age: age, gender: selectedGender , weight: weight, exerciseFreq: exercisefreq, goal: goal)
+                    
                 let homeVC = HomeViewController()
+                        homeVC.macroCalculator = nil
+                        homeVC.macroCalculator = macroCalculator
                       homeVC.modalPresentationStyle = .overFullScreen
                       self.present(homeVC, animated: true, completion: nil)
             }
             }
+        }
         }
         
     }
