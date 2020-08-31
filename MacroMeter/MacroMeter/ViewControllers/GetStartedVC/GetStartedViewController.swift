@@ -16,6 +16,7 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var femaleButton: UIButton!
     @IBOutlet weak var weightTextField: UITextField!
+    @IBOutlet weak var cancelButton: UIButton!
     
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var weightlossGoalButton: UIButton!
@@ -30,8 +31,11 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.cancelButton.alpha = 0
         if self.edit {
+            self.cancelButton.alpha = 1
             self.getStarted.text = "Edit"
+            
         }
        prepareUI()
     }
@@ -42,13 +46,14 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
               self.view.addGestureRecognizer(tapGesture)
     //do the same drop down for exercise frequency
         exerciseFrequencyDropDown.textColor = .white
+        exerciseFrequencyDropDown.dismissMode = .automatic
         exerciseFrequencyDropDown.backgroundColor = .black
         exerciseFrequencyDropDown.direction = .bottom
         exerciseFrequencyDropDown.selectionBackgroundColor = .black
         exerciseFrequencyDropDown.anchorView = self.exerciseFrequencyButton
         exerciseFrequencyDropDown.dataSource = ["0 days", "1-2 days", "3-4 days", "5-6 days", "7 days"]
         
-        
+        weightLossGoalsDropDown.dismissMode = .automatic
         weightLossGoalsDropDown.textColor = .white
         weightLossGoalsDropDown.backgroundColor = .black
         weightLossGoalsDropDown.direction = .bottom
@@ -85,8 +90,9 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func tapped(UITapGesture: UITapGestureRecognizer) {
-        self.exerciseFrequencyDropDown.hide()
-        self.weightLossGoalsDropDown.hide()
+        self.ageTextField.resignFirstResponder()
+        self.heightTextField.resignFirstResponder()
+        self.weightTextField.resignFirstResponder()
     }
     
     private func verifyAge(age: String) -> Bool {
@@ -123,7 +129,7 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
+        textField.resignFirstResponder()
         if let text = textField.text {
             
             if textField.tag == 1 {
@@ -258,6 +264,9 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    @IBAction func cancelTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
 }
 
 extension String {

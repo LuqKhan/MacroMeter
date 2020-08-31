@@ -21,14 +21,18 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var carbsLabel: UILabel!
     
     @IBOutlet weak var fatLabel: UILabel!
-    @IBOutlet weak var mealBreakdownLabel: UILabel!
     
     let menuDropDown = DropDown()
     let mealFrequencyDropDown = DropDown()
     var macroCalculator: MacroCalculator!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         prepareUI()
+    }
+    
+    @objc func tapped(UITapGestureRecognizer: UITapGestureRecognizer) {
+        self.menuDropDown.hide()
     }
     
     func prepareUI() {
@@ -52,14 +56,14 @@ class HomeViewController: UIViewController {
         
     
         
-        
+        menuDropDown.dismissMode = .automatic
         menuDropDown.textColor = .white
         menuDropDown.backgroundColor = .black
         menuDropDown.direction = .bottom
         menuDropDown.selectionBackgroundColor = .black
         
         self.menuDropDown.anchorView = self.menuButton
-        self.menuDropDown.dataSource = ["Edit", "Notifications", "Meal Breakdown"]
+        self.menuDropDown.dataSource = ["Edit", "Meal Breakdown"]
         
         
         self.logoImage.layer.cornerRadius = 10
@@ -76,18 +80,17 @@ class HomeViewController: UIViewController {
                 editVC.modalPresentationStyle = .overFullScreen
                 self.present(editVC, animated: true, completion: nil)
                 
-            } else if index == 1 {
-                let notificationsVC = NotificationsViewController()
-                notificationsVC.modalPresentationStyle = .overFullScreen
-                self.present(notificationsVC, animated: true, completion: nil)
+//            } else if index == 1 {
+//                let notificationsVC = NotificationsViewController()
+//                notificationsVC.modalPresentationStyle = .overFullScreen
+//                self.present(notificationsVC, animated: true, completion: nil)
                 
-            } else {
+            } else if index == 1 {
                 let breakdownVC = MealBreakdownViewController()
                 breakdownVC.macroCalculator = self.macroCalculator
                 breakdownVC.modalPresentationStyle = .overFullScreen
                 self.present(breakdownVC, animated: true, completion: nil)
             }
-            
             
         }
     }
