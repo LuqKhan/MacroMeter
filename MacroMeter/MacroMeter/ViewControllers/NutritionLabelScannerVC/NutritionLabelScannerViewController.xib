@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NutritionLabelScannerViewController" customModule="MacroMeter" customModuleProvider="target">
+            <connections>
+                <outlet property="instructionLabel" destination="M1Y-ow-QvV" id="MYC-9g-qgT"/>
+                <outlet property="macrosLabel" destination="9fv-Xa-weP" id="XZn-Ew-6Ll"/>
+                <outlet property="scanButton" destination="3eV-7y-uUs" id="wbO-LQ-fze"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan a nutrition label to easily track macronutrients." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1Y-ow-QvV">
+                    <rect key="frame" x="70" y="242" width="275" height="94"/>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3eV-7y-uUs">
+                    <rect key="frame" x="177" y="424" width="61" height="49"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="camera.viewfinder" catalog="system"/>
+                    <connections>
+                        <action selector="scanButtonTapped:" destination="-1" eventType="touchUpInside" id="Hkc-75-M9k"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fv-Xa-weP">
+                    <rect key="frame" x="59" y="636" width="301" height="199"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="M1Y-ow-QvV" secondAttribute="bottom" constant="526" id="B94-YY-1VC"/>
+                <constraint firstItem="3eV-7y-uUs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="177" id="BRt-W5-qQs"/>
+                <constraint firstItem="M1Y-ow-QvV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="198" id="LDJ-aY-QiJ"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3eV-7y-uUs" secondAttribute="trailing" constant="176" id="Oh4-4l-H0B"/>
+                <constraint firstItem="9fv-Xa-weP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="636" id="WRN-jB-NI0"/>
+                <constraint firstItem="M1Y-ow-QvV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="cuI-Dx-Ax2"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="9fv-Xa-weP" secondAttribute="trailing" constant="54" id="gDe-fZ-hr4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="9fv-Xa-weP" secondAttribute="bottom" constant="27" id="kck-Gk-Shs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="M1Y-ow-QvV" secondAttribute="trailing" constant="69" id="pKN-KJ-25T"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3eV-7y-uUs" secondAttribute="bottom" constant="389" id="xlI-pK-U5d"/>
+                <constraint firstItem="3eV-7y-uUs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="424" id="y5e-QE-K4D"/>
+                <constraint firstItem="9fv-Xa-weP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="59" id="ye1-Sq-9xU"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="137.68115942028987" y="89.732142857142847"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="camera.viewfinder" catalog="system" width="128" height="114"/>
+    </resources>
+</document>

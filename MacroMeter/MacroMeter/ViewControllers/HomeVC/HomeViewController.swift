@@ -8,7 +8,8 @@
 
 import UIKit
 import DropDown
-
+import VisionKit
+import Vision
 class HomeViewController: UIViewController {
     
     
@@ -25,6 +26,13 @@ class HomeViewController: UIViewController {
     let menuDropDown = DropDown()
     let mealFrequencyDropDown = DropDown()
     var macroCalculator: MacroCalculator!
+     let cameraVC = VNDocumentCameraViewController()
+    let scannerVC = NutritionLabelScannerViewController()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +71,7 @@ class HomeViewController: UIViewController {
         menuDropDown.selectionBackgroundColor = .black
         
         self.menuDropDown.anchorView = self.menuButton
-        self.menuDropDown.dataSource = ["Edit", "Meal Breakdown"]
+        self.menuDropDown.dataSource = ["Edit", "Meal Breakdown", "Nutrition Label Scanner"]
         
         
         self.logoImage.layer.cornerRadius = 10
@@ -90,6 +98,10 @@ class HomeViewController: UIViewController {
                 breakdownVC.macroCalculator = self.macroCalculator
                 breakdownVC.modalPresentationStyle = .overFullScreen
                 self.present(breakdownVC, animated: true, completion: nil)
+            } else {
+           
+                self.scannerVC.modalPresentationStyle = .overFullScreen
+                self.present(self.scannerVC, animated: true, completion: nil)
             }
             
         }

@@ -21,6 +21,8 @@
 		EF70D99724FB03050020E360 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D99524FB03040020E360 /* HomeViewController.swift */; };
 		EF70D99824FB03050020E360 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF70D99624FB03040020E360 /* HomeViewController.xib */; };
 		EF70D99B24FB04530020E360 /* MacroCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF70D99A24FB04530020E360 /* MacroCalculator.swift */; };
+		EFC6337724FD6B3E009A209A /* NutritionLabelScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC6337524FD6B3E009A209A /* NutritionLabelScannerViewController.swift */; };
+		EFC6337824FD6B3E009A209A /* NutritionLabelScannerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFC6337624FD6B3E009A209A /* NutritionLabelScannerViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		EF70D99524FB03040020E360 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EF70D99624FB03040020E360 /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		EF70D99A24FB04530020E360 /* MacroCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MacroCalculator.swift; sourceTree = "<group>"; };
+		EFC6337524FD6B3E009A209A /* NutritionLabelScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionLabelScannerViewController.swift; sourceTree = "<group>"; };
+		EFC6337624FD6B3E009A209A /* NutritionLabelScannerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NutritionLabelScannerViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +134,7 @@
 				EF70D99924FB030C0020E360 /* HomeVC */,
 				EF2237C524FB394800CB2573 /* NotificationsVC */,
 				EF2237CF24FC342700CB2573 /* MealBreakdownVC */,
+				EFC6337924FD6B45009A209A /* NutritionLabelScannerVC */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -158,6 +163,15 @@
 				EF70D99A24FB04530020E360 /* MacroCalculator.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EFC6337924FD6B45009A209A /* NutritionLabelScannerVC */ = {
+			isa = PBXGroup;
+			children = (
+				EFC6337524FD6B3E009A209A /* NutritionLabelScannerViewController.swift */,
+				EFC6337624FD6B3E009A209A /* NutritionLabelScannerViewController.xib */,
+			);
+			path = NutritionLabelScannerVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF70D98624FAB5BC0020E360 /* LaunchScreen.storyboard in Resources */,
+				EFC6337824FD6B3E009A209A /* NutritionLabelScannerViewController.xib in Resources */,
 				EF2237C424FB393E00CB2573 /* NotificationsViewController.xib in Resources */,
 				EF70D98324FAB5BC0020E360 /* Assets.xcassets in Resources */,
 				EF70D99224FADACB0020E360 /* GetStartedViewController.xib in Resources */,
@@ -279,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF70D99124FADACB0020E360 /* GetStartedViewController.swift in Sources */,
+				EFC6337724FD6B3E009A209A /* NutritionLabelScannerViewController.swift in Sources */,
 				EF70D97A24FAB5B80020E360 /* AppDelegate.swift in Sources */,
 				EF70D99B24FB04530020E360 /* MacroCalculator.swift in Sources */,
 				EF2237C324FB393E00CB2573 /* NotificationsViewController.swift in Sources */,
