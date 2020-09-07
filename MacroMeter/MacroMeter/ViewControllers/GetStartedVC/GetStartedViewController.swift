@@ -240,12 +240,6 @@ class GetStartedViewController: UIViewController, UITextFieldDelegate {
                     let macroCalculator = MacroCalculator(height: height, age: age, gender: selectedGender , weight: weight, exerciseFreq: exercisefreq, goal: goal)
                     
                 let homeVC = HomeViewController()
-//                        UserDefaults.standard.removeObject(forKey: "gender")
-//                        UserDefaults.standard.removeObject(forKey: "age")
-//                        UserDefaults.standard.removeObject(forKey: "height")
-//                        UserDefaults.standard.removeObject(forKey: "weight")
-//                        UserDefaults.standard.removeObject(forKey: "exerciseFreq")
-//                        UserDefaults.standard.removeObject(forKey: "goal")
                         
                         UserDefaults.standard.set(macroCalculator.gender, forKey: "gender")
                         UserDefaults.standard.set(macroCalculator.age, forKey: "age")

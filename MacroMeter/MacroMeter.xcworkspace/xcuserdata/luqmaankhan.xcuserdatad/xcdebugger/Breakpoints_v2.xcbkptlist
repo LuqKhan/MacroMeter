@@ -220,25 +220,9 @@
             filePath = "MacroMeter/ViewControllers/HomeVC/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "prepareUI()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "D1465F39-C1A6-4549-8DF1-1A979E18119E"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "305"
-            endingLineNumber = "305"
-            landmarkName = "sliderEnded(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -252,8 +236,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "254"
-            endingLineNumber = "254"
+            startingLineNumber = "377"
+            endingLineNumber = "377"
             landmarkName = "parseCalories(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -268,8 +252,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "258"
-            endingLineNumber = "258"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "parseCalories(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -284,8 +268,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "255"
-            endingLineNumber = "255"
+            startingLineNumber = "378"
+            endingLineNumber = "378"
             landmarkName = "parseCalories(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -300,8 +284,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "263"
-            endingLineNumber = "263"
+            startingLineNumber = "386"
+            endingLineNumber = "386"
             landmarkName = "parseCalories(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -316,8 +300,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "265"
-            endingLineNumber = "265"
+            startingLineNumber = "388"
+            endingLineNumber = "388"
             landmarkName = "parseCalories(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -332,8 +316,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "390"
+            endingLineNumber = "390"
             landmarkName = "parseCalories(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -348,8 +332,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "395"
+            endingLineNumber = "395"
             landmarkName = "parseCalories(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -364,25 +348,9 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "267"
-            endingLineNumber = "267"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
             landmarkName = "parseCalories(recognizedText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "54009DB1-7ABA-4B88-A1D6-CC2FD8868BAD"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "addRecognizedText(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -396,8 +364,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "215"
-            endingLineNumber = "215"
+            startingLineNumber = "338"
+            endingLineNumber = "338"
             landmarkName = "parseCarbs(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -412,8 +380,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "201"
-            endingLineNumber = "201"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
             landmarkName = "parseCarbs(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -428,8 +396,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "314"
-            endingLineNumber = "314"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
             landmarkName = "documentCameraViewController(_:didFinishWith:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -444,8 +412,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "195"
-            endingLineNumber = "195"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
             landmarkName = "parseCarbs(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -460,8 +428,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "parseCarbs(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -476,8 +444,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "200"
-            endingLineNumber = "200"
+            startingLineNumber = "325"
+            endingLineNumber = "325"
             landmarkName = "parseCarbs(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -492,8 +460,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "196"
-            endingLineNumber = "196"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
             landmarkName = "parseCarbs(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -502,14 +470,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3509A90B-C6C5-4130-B795-5AB2247F1097"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "218"
-            endingLineNumber = "218"
+            startingLineNumber = "341"
+            endingLineNumber = "341"
             landmarkName = "parseCarbs(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -524,8 +492,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "207"
+            endingLineNumber = "207"
             landmarkName = "parseFat(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -540,8 +508,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "208"
+            endingLineNumber = "208"
             landmarkName = "parseFat(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -556,8 +524,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "parseFat(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -572,8 +540,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "172"
-            endingLineNumber = "172"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "parseFat(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -588,8 +556,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "149"
-            endingLineNumber = "149"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "parseFat(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -604,8 +572,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
             landmarkName = "parseFat(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -620,8 +588,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "parseFat(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -636,8 +604,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
+            startingLineNumber = "225"
+            endingLineNumber = "225"
             landmarkName = "parseFat(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -652,8 +620,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "parseProtein(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -668,8 +636,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "parseProtein(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -684,8 +652,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "110"
-            endingLineNumber = "110"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
             landmarkName = "parseProtein(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -700,8 +668,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "99"
-            endingLineNumber = "99"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
             landmarkName = "parseProtein(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -716,8 +684,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
             landmarkName = "parseProtein(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -732,8 +700,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
             landmarkName = "parseProtein(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -748,8 +716,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "parseProtein(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -764,25 +732,9 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
             landmarkName = "parseProtein(recognizedText:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "BC07B5A7-DF74-4001-AB81-E65D7C7E3C8F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "addRecognizedText(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -796,8 +748,8 @@
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "214"
-            endingLineNumber = "214"
+            startingLineNumber = "337"
+            endingLineNumber = "337"
             landmarkName = "parseCarbs(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -806,14 +758,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4795561E-A96B-4A49-BE4A-53DD62B03592"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MacroMeter/ViewControllers/NutritionLabelScannerVC/NutritionLabelScannerViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "228"
-            endingLineNumber = "228"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
             landmarkName = "parseCarbs(recognizedText:)"
             landmarkType = "7">
          </BreakpointContent>

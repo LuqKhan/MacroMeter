@@ -25,28 +25,6 @@ class NotificationsViewController: UIViewController {
     }
     
     @objc func scheduleNotifications() {
-//        let content = UNMutableNotificationContent()
-//        content.title = "Did You Eat Breakfast?"
-//        content.sound = UNNotificationSound.default
-//
-//        var dateComponents = DateComponents()
-//        dateComponents.hour = 10
-//        dateComponents.minute = 30
-//        let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-//        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//        center.add(request)
-//
-//        let lunchContent = UNMutableNotificationContent()
-//             content.title = "Did You Eat Breakfast?"
-//             content.sound = UNNotificationSound.default
-//
-//             var dateComponents = DateComponents()
-//             dateComponents.hour = 10
-//             dateComponents.minute = 30
-//             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-//             let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
-//             center.add(request)
-//
         
     }
     

@@ -86,18 +86,14 @@ class MealBreakdownViewController: UIViewController {
                 self.showLabels()
                 self.pieChart.models.removeAll()
                 self.pieChart.models = [PieSliceModel(value: fat, color: .yellow), PieSliceModel(value: carbs, color: .red), PieSliceModel(value: protein, color: .green)]
-                //let macroFat = String(fat)
-                //                    let display = "Macro Breakdown Per Meal: \nProtein: \(macroProtein)g \nCarbs: \(macroCarb)g \nFat: \(macroFat)g"
                 
             case 1:
-                //3 meals
+            
                 let protein = Double(self.macroCalculator.macros[0])! / 3
-                //let macroProtein = String(protein)
                 let carbs = Double(self.macroCalculator.macros[1])! / 3
-                //let macroCarb = String(carbs)
+                
                 let fat = Double(self.macroCalculator.macros[2])! / 3
-                //let macroFat = String(fat)
-                //                    let display = "Macro Breakdown Per Meal: \nProtein: \(macroProtein)g \nCarbs: \(macroCarb)g \nFat: \(macroFat)g"
+    
                 let intFat = Int(fat)
                 let intCarb = Int(carbs)
                 let intProtein = Int(protein)
@@ -125,12 +121,6 @@ class MealBreakdownViewController: UIViewController {
                 self.showLabels()
                 self.pieChart.models.removeAll()
                 self.pieChart.models = [PieSliceModel(value: fat, color: .yellow), PieSliceModel(value: carbs, color: .red), PieSliceModel(value: protein, color: .green)]
-                
-                //let mealProtein = protein * 2
-                //let mealCarbs = carbs * 2
-                //let mealFats = fat * 2
-                
-                //                   let display = "Snacks: \nProtein: \(macroProtein)g, Carbs: \(macroCarb)g, Fats: \(macroFat)g\n\nMeals: \n Protein: \(mealProtein)g, Carbs: \(mealCarbs)g, Fats: \(mealFats)g"
                 
             default:
                 break

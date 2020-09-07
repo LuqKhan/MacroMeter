@@ -12,19 +12,44 @@ import VisionKit
 import NaturalLanguage
 
 class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraViewControllerDelegate{
-    @IBOutlet weak var macrosLabel: UILabel!
+    
+    @IBOutlet weak var servingSizeValue: UILabel!
+    @IBOutlet weak var proteinLabel: UILabel!
+    
+    @IBOutlet weak var carbsLabel: UILabel!
+    
+    @IBOutlet weak var fatLabel: UILabel!
+    
     @IBOutlet weak var servingsEatenSlider: UISlider!
     
+    @IBOutlet weak var caloriesLabel: UILabel!
+    @IBOutlet weak var blueCalories: UIView!
     @IBOutlet weak var servingsInstructionsLabel: UILabel!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var scanButton: UIButton!
     
+    @IBOutlet weak var proteinGreen: UIView!
+    @IBOutlet weak var yellowFat: UIView!
     var request = VNRecognizeTextRequest()
     var transcript = ""
-    let cameraVC = VNDocumentCameraViewController()
+    @IBOutlet weak var carbRed: UIView!
+    var cameraVC: VNDocumentCameraViewController!
     let maximumCandidates = 1
+    var servingSize: Int!
+    var intCarbs: Int?
+    var intFat: Int?
+    var intProtein: Int?
+    var intCals: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.servingSizeValue.alpha = 0
+        blueCalories.layer.cornerRadius = 3
+        proteinGreen.layer.cornerRadius = 3
+        carbRed.layer.cornerRadius = 3
+        yellowFat.layer.cornerRadius = 3
+        self.hideLabels()
+        cameraVC = VNDocumentCameraViewController()
         
         self.servingsInstructionsLabel.alpha = 0
         self.servingsEatenSlider.alpha = 0
@@ -56,16 +81,61 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         uiAlert.addAction(action)
         self.present(uiAlert, animated: true) {
-            self.macrosLabel.text = ""
+            self.hideLabels()
         }
     }
     
+    private func hideLabels() {
+        self.caloriesLabel.alpha = 0
+        self.blueCalories.alpha = 0
+        self.proteinLabel.alpha = 0
+        self.fatLabel.alpha = 0
+        self.carbsLabel.alpha = 0
+        self.proteinGreen.alpha = 0
+        self.carbRed.alpha = 0
+        self.yellowFat.alpha = 0
+    }
+    
+    private func showLabels() {
+        self.blueCalories.alpha = 1
+        self.caloriesLabel.alpha = 1
+        self.proteinLabel.alpha = 1
+        self.fatLabel.alpha = 1
+        self.carbsLabel.alpha = 1
+        self.proteinGreen.alpha = 1
+        self.carbRed.alpha = 1
+        self.yellowFat.alpha = 1
+    }
+    
     func addRecognizedText(recognizedText: [VNRecognizedTextObservation]) {
-        var caloriesPerServing = parseCalories(recognizedText: recognizedText)
-        var carbsPerServing = parseCarbs(recognizedText: recognizedText)
-        var fatPerServing = parseFat(recognizedText: recognizedText)
-        var proteinPerServing = parseProtein(recognizedText: recognizedText)
-        var o = ""
+        showLabels()
+        
+        if
+            let caloriesPerServing = parseCalories(recognizedText: recognizedText),
+            let carbsPerServing = parseCarbs(recognizedText: recognizedText),
+            let fatPerServing = parseFat(recognizedText: recognizedText),
+            let proteinPerServing = parseProtein(recognizedText: recognizedText) {
+            
+            self.intFat = Int(fatPerServing)!
+            self.intCals = Int(caloriesPerServing)!
+            self.intCarbs = Int(carbsPerServing)
+            self.intProtein = Int(proteinPerServing)!
+            self.caloriesLabel.text = "Calories: \(caloriesPerServing)"
+            self.proteinLabel.text = "Protein: \(proteinPerServing)g"
+            self.carbsLabel.text = "Carbohydrate: \(carbsPerServing)g"
+            self.fatLabel.text = "Fat: \(fatPerServing)g"
+            
+            let intVal = Int(self.servingsEatenSlider.value)
+            self.servingSizeValue.text = "\(intVal)"
+            self.servingsEatenSlider.alpha = 1
+            self.servingSizeValue.alpha = 1
+            self.servingsEatenSlider.maximumValue = 50
+            self.servingsEatenSlider.minimumValue = 1
+            self.servingsInstructionsLabel.alpha = 1
+            
+        } else {
+            presentAlert()
+        }
     }
     
     
@@ -117,12 +187,9 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                         }
                     }
                 }
-                presentAlert()
+                return nil
             }
-            
-            
-            
-        } // FIGURE OUT ALL VARIATIONS OF THE REGEX PATTERN THAT CAN BE USED, ND FOR EACH MATCH FAILURE GO THROUGH UNTIL THE THEY ARE ALL EXHAUSTED AND THEN PRESENT ALERT
+        }
         return proteinPerServing
     }
     
@@ -163,15 +230,75 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                         }
                     }
                 }
-                presentAlert()
+                return nil
             }
-            
-            
-            
-        } // FIGURE OUT ALL VARIATIONS OF THE REGEX PATTERN THAT CAN BE USED, ND FOR EACH MATCH FAILURE GO THROUGH UNTIL THE THEY ARE ALL EXHAUSTED AND THEN PRESENT ALERT
+        }
         return fatPerServing
         
     }
+    
+    func parseServingSize(recognizedText: [VNRecognizedTextObservation]) -> String? {
+        var servingSize = ""
+        
+        var servingSizeText = ""
+        
+        
+        for (_, observation) in recognizedText.enumerated() {
+            guard let candidate = observation.topCandidates(maximumCandidates).first else {continue}
+            servingSizeText.append(candidate.string)
+            
+            
+        }
+        
+        servingSizeText = servingSizeText.lowercased()
+        print(servingSizeText)
+        
+        let shortPattern = "serving\\s+size\\s+(\\d+)"
+        let largePattern = "serving\\s+size(\\d+)"
+        let otherPattern = "servingsize\\s+(\\d+)"
+       
+        if let regex = try? NSRegularExpression(pattern: shortPattern, options: .dotMatchesLineSeparators) {
+            if let match = regex.firstMatch(in: servingSizeText, options: [], range: NSRange(location: 0, length: servingSizeText.count)) {
+                
+                if let wholeRange = Range(match.range(at: 0), in: servingSizeText) {
+                    let wholeMatch = servingSizeText[wholeRange]
+                    for character in wholeMatch {
+                        if character.isNumber {
+                            servingSize.append(character)
+                        }
+                    }
+                }
+            } else if let otherRegex = try? NSRegularExpression(pattern: largePattern, options: .dotMatchesLineSeparators) {
+                if let match = otherRegex.firstMatch(in: servingSizeText, options: [], range: NSRange(location: 0, length: servingSizeText.count)) {
+                    if let wholeRange = Range(match.range(at: 0), in: servingSizeText) {
+                        let wholeMatch = servingSizeText[wholeRange]
+                        for character in wholeMatch {
+                            if character.isNumber {
+                                servingSize.append(character)
+                            }
+                        }
+                    }
+                    
+                } else if let otherRegex = try? NSRegularExpression(pattern: largePattern, options: .dotMatchesLineSeparators) {
+                    if let match = otherRegex.firstMatch(in: servingSizeText, options: [], range: NSRange(location: 0, length: servingSizeText.count)) {
+                        if let wholeRange = Range(match.range(at: 0), in: servingSizeText) {
+                            let wholeMatch = servingSizeText[wholeRange]
+                            for character in wholeMatch {
+                                if character.isNumber {
+                                    servingSize.append(character)
+                                }
+                            }
+                        }
+                        
+                    }
+                    return nil
+                }
+            }
+        }
+        return servingSize
+    }
+    
+    
     
     func parseCarbs(recognizedText: [VNRecognizedTextObservation]) -> String? {
         
@@ -194,15 +321,11 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         
         carbsText = carbsText.lowercased()
         print(carbsText)
-        
-        //add in hydrate as well as edge case
-        //D.N.R -> RECORD ALL VARIATIONS OF THE STRING IN ORDER TO KEEP TRACK OF ALL POSSIBLE PATTTERNS TO BE USED HERE FOR E.G: HYDRATE
+     
         let shortCarbsPattern = "total\\s+carb.\\s+(\\d+)"
         let largeCarbsPattern = "total\\s+carbohydrate(\\d+)"
         let otherCarbsPattern = "total\\s+carbohydrate\\s+(\\d+)"
-        //if the regex pattern fails then slice the string out as well as 3 characters ahead
-        //
-        
+      
         var mutableCarbsPattern = ""
         if isLarge {
             mutableCarbsPattern = largeCarbsPattern
@@ -234,39 +357,50 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                     }
                     
                 }
-                presentAlert()
+               return nil
             }
-    
-        
+            
+            
         }
         return carbPerServing
     }
+    
+    
+    
+    func parseCalories(recognizedText: [VNRecognizedTextObservation]) -> String? {
         
-        func parseCalories(recognizedText: [VNRecognizedTextObservation]) -> String? {
-            
-            let maximumCandidates = 1
-            var caloriesPerServing = ""
-            
-            
-            //calories box
-            //POTENTIAL ERROR!!!!!!!!!!!!!!!! THE COUNT MAY START TOO LATE AND CUT OFF THE CALORIES ON SMALL LABELS!!!!
-            let caloriesIndeces = (recognizedText.count / 3) - 1
-            let topThird = recognizedText[2...caloriesIndeces]
-            var caloriesText = ""
-            
-            for (_, observation) in topThird.enumerated() {
-                guard let candidate = observation.topCandidates(maximumCandidates).first else {continue}
-                caloriesText.append(candidate.string)
-            }
-            
-            caloriesText = caloriesText.lowercased()
-            print(caloriesText)
-            
-            let caloriesPattern = "calories(\\d+)"
-            if let regex = try? NSRegularExpression(pattern: caloriesPattern, options: .allowCommentsAndWhitespace) {
-                if let match = regex.firstMatch(in: caloriesText, options: [], range: NSRange(location: 0, length: caloriesText.count)) {
-                    
-                    if let wholeRange = Range(match.range(at: 0), in: caloriesText) {
+        let maximumCandidates = 1
+        var caloriesPerServing = ""
+        
+    
+        let caloriesIndeces = (recognizedText.count / 3) - 1
+        let topThird = recognizedText[2...caloriesIndeces]
+        var caloriesText = ""
+        
+        for (_, observation) in topThird.enumerated() {
+            guard let candidate = observation.topCandidates(maximumCandidates).first else {continue}
+            caloriesText.append(candidate.string)
+        }
+        
+        caloriesText = caloriesText.lowercased()
+        print(caloriesText)
+        
+        let caloriesPattern = "calories(\\d+)"
+        let longCaloriesPattern = "calories\\s+(\\d+)"
+        if let regex = try? NSRegularExpression(pattern: caloriesPattern, options: .allowCommentsAndWhitespace) {
+            if let match = regex.firstMatch(in: caloriesText, options: [], range: NSRange(location: 0, length: caloriesText.count)) {
+                
+                if let wholeRange = Range(match.range(at: 0), in: caloriesText) {
+                    let wholeMatch = caloriesText[wholeRange]
+                    for character in wholeMatch {
+                        if character.isNumber {
+                            caloriesPerServing.append(character)
+                        }
+                    }
+                }
+            } else if let secondRegex = try? NSRegularExpression(pattern: longCaloriesPattern, options: .allowCommentsAndWhitespace) {
+                if let secondMatch = secondRegex.firstMatch(in: caloriesText, options: [], range: NSRange(location: 0, length: caloriesText.count)) {
+                    if let wholeRange = Range(secondMatch.range(at: 0), in: caloriesText) {
                         let wholeMatch = caloriesText[wholeRange]
                         for character in wholeMatch {
                             if character.isNumber {
@@ -274,55 +408,73 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                             }
                         }
                     }
-                } // FIGURE OUT ALL VARIATIONS OF THE REGEX PATTERN THAT CAN BE USED, ND FOR EACH MATCH FAILURE GO THROUGH UNTIL THE THEY ARE ALL EXHAUSTED AND THEN PRESENT ALERT
-                
-                presentAlert()
-                
+                }
             }
-            return caloriesPerServing
+            
+          return nil
+            
         }
-        
+        return caloriesPerServing
+    }
     
-
+    func processImage(image: UIImage) {
+        guard let cgImage = image.cgImage else {
+            print("Failed to get cgimage from input image")
+            return
+        }
         
+        let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        do {
+            try handler.perform([request])
+        } catch {
+            print(error)
+        }
+    }
+    
+    
+    @IBAction func sliderEnded(_ sender: UISlider) {
         
-        func processImage(image: UIImage) {
-            guard let cgImage = image.cgImage else {
-                print("Failed to get cgimage from input image")
-                return
-            }
+        //1 serving size is already set by default
+        //the number of servings increment by 1
+        let value = Int(sender.value)
+        if let intCarbs = self.intCarbs,
+            let intFat = self.intFat,
+            let intCals = self.intCals,
+            let intProtein = self.intProtein {
             
-            let handler = VNImageRequestHandler(cgImage: cgImage, options: [:])
-            do {
-                try handler.perform([request])
-            } catch {
-                print(error)
-            }
+            let carbsPerServing = intCarbs * value
+            let fatPerServing = intFat * value
+            let caloriesPerServing = intCals * value
+            let proteinPerServing = intProtein * value
+            
+            self.proteinLabel.text = "Protein: \(proteinPerServing)g"
+            self.carbsLabel.text = "Carbohydrate: \(carbsPerServing)g"
+            self.caloriesLabel.text = "Calories: \(caloriesPerServing)"
+            self.fatLabel.text = "Fat: \(fatPerServing)g"
+            self.servingSizeValue.text = "\(value)"
         }
         
         
-        @IBAction func sliderEnded(_ sender: UISlider) {
-            print("Editing ended")
-        }
+    }
+    
+    func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
+        // process image
         
-        func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-            // process image
-            
-            
-            controller.dismiss(animated: true) {
-                //HERE YOU CAN MAKE IT SO ONLY THE VERY LAST IMAGE IS USED.
-                DispatchQueue.global(qos: .userInitiated).async {
-                    for pageNumber in 0 ..< scan.pageCount {
-                        let image = scan.imageOfPage(at: pageNumber)
-                        self.processImage(image: image)
-                    }
+        
+        controller.dismiss(animated: true) {
+            //HERE YOU CAN MAKE IT SO ONLY THE VERY LAST IMAGE IS USED.
+            DispatchQueue.global(qos: .userInitiated).async {
+                for pageNumber in 0 ..< scan.pageCount {
+                    let image = scan.imageOfPage(at: pageNumber)
+                    self.processImage(image: image)
                 }
             }
         }
-        
     }
-    extension Collection where Indices.Iterator.Element == Index {
-        subscript (safe index: Index) -> Iterator.Element? {
-            return indices.contains(index) ? self[index] : nil
-        }
+}
+
+extension Collection where Indices.Iterator.Element == Index {
+    subscript (safe index: Index) -> Iterator.Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
 }

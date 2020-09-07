@@ -12,7 +12,6 @@ import VisionKit
 import Vision
 class HomeViewController: UIViewController {
     
-    
     @IBOutlet weak var logoImage: UIImageView!
     @IBOutlet weak var menuButton: UIButton!
     
@@ -26,7 +25,7 @@ class HomeViewController: UIViewController {
     let menuDropDown = DropDown()
     let mealFrequencyDropDown = DropDown()
     var macroCalculator: MacroCalculator!
-     let cameraVC = VNDocumentCameraViewController()
+   
     let scannerVC = NutritionLabelScannerViewController()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -59,10 +58,6 @@ class HomeViewController: UIViewController {
                   self.carbsLabel.text = "\(self.macroCalculator.macros[1])g"
                   self.proteinLabel.text = "\(self.macroCalculator.macros[0])g"
                   self.fatLabel.text = "\(self.macroCalculator.macros[2])g"
-            
-        
-        
-    
         
         menuDropDown.dismissMode = .automatic
         menuDropDown.textColor = .white
@@ -87,11 +82,6 @@ class HomeViewController: UIViewController {
                 editVC.edit = true
                 editVC.modalPresentationStyle = .overFullScreen
                 self.present(editVC, animated: true, completion: nil)
-                
-//            } else if index == 1 {
-//                let notificationsVC = NotificationsViewController()
-//                notificationsVC.modalPresentationStyle = .overFullScreen
-//                self.present(notificationsVC, animated: true, completion: nil)
                 
             } else if index == 1 {
                 let breakdownVC = MealBreakdownViewController()
