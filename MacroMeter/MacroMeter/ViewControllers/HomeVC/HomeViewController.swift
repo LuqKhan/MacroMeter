@@ -10,12 +10,23 @@ import UIKit
 import DropDown
 import VisionKit
 import Vision
+import PieCharts
+
 class HomeViewController: UIViewController {
+    @IBOutlet weak var caloriesLabel: UILabel!
     
-    @IBOutlet weak var logoImage: UIImageView!
+    @IBOutlet weak var caloriesBlue: UIView!
+    @IBOutlet weak var dailyProteinLabel: UILabel!
+    @IBOutlet weak var carbRed: UIView!
+    @IBOutlet weak var proteinGreen: UIView!
+    @IBOutlet weak var pieChart: PieChart!
+    @IBOutlet weak var dailyCarbsLabel: UILabel!
+    
+    @IBOutlet weak var dailyFatLabel: UILabel!
+    @IBOutlet weak var yelloFat: UIView!
     @IBOutlet weak var menuButton: UIButton!
     
-    @IBOutlet weak var caloriesLabel: UILabel!
+    @IBOutlet weak var dailyCaloriesLabel: UILabel!
     @IBOutlet weak var proteinLabel: UILabel!
     
     @IBOutlet weak var carbsLabel: UILabel!
@@ -68,8 +79,6 @@ class HomeViewController: UIViewController {
         self.menuDropDown.anchorView = self.menuButton
         self.menuDropDown.dataSource = ["Edit", "Meal Breakdown", "Nutrition Label Scanner"]
         
-        
-        self.logoImage.layer.cornerRadius = 10
         self.menuButton.layer.cornerRadius = 10
         self.menuButton.layer.borderWidth = 1
         self.menuButton.layer.borderColor = UIColor.white.cgColor
