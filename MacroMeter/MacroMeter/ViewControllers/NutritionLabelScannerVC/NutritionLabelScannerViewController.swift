@@ -22,6 +22,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     
     @IBOutlet weak var servingsEatenSlider: UISlider!
     
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var caloriesLabel: UILabel!
     @IBOutlet weak var blueCalories: UIView!
     @IBOutlet weak var servingsInstructionsLabel: UILabel!
@@ -35,14 +36,18 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     @IBOutlet weak var carbRed: UIView!
     var cameraVC: VNDocumentCameraViewController!
     let maximumCandidates = 1
-    var servingSize: Int!
-    var intCarbs: Int?
-    var intFat: Int?
-    var intProtein: Int?
-    var intCals: Int?
+    var servingSize: Double?
+    var doubleCarbs: Double?
+    var doubleFat: Double?
+    var doubleProtein: Double?
+    var doubleCals: Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.saveButton.layer.cornerRadius = 10
+             self.saveButton.layer.borderWidth = 1
+             self.saveButton.layer.borderColor = UIColor.white.cgColor
         self.servingSizeValue.alpha = 0
         blueCalories.layer.cornerRadius = 3
         proteinGreen.layer.cornerRadius = 3
@@ -86,6 +91,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     }
     
     private func hideLabels() {
+        self.saveButton.alpha = 0
         self.caloriesLabel.alpha = 0
         self.blueCalories.alpha = 0
         self.proteinLabel.alpha = 0
@@ -97,6 +103,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     }
     
     private func showLabels() {
+        self.saveButton.alpha = 1
         self.blueCalories.alpha = 1
         self.caloriesLabel.alpha = 1
         self.proteinLabel.alpha = 1
@@ -110,29 +117,37 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     func addRecognizedText(recognizedText: [VNRecognizedTextObservation]) {
         showLabels()
         
-        if
-            let caloriesPerServing = parseCalories(recognizedText: recognizedText),
-            let carbsPerServing = parseCarbs(recognizedText: recognizedText),
-            let fatPerServing = parseFat(recognizedText: recognizedText),
-            let proteinPerServing = parseProtein(recognizedText: recognizedText) {
+        if self.isNutritionLabel(recognizedText: recognizedText) {
             
-            self.intFat = Int(fatPerServing)!
-            self.intCals = Int(caloriesPerServing)!
-            self.intCarbs = Int(carbsPerServing)
-            self.intProtein = Int(proteinPerServing)!
-            self.caloriesLabel.text = "Calories: \(caloriesPerServing)"
-            self.proteinLabel.text = "Protein: \(proteinPerServing)g"
-            self.carbsLabel.text = "Carbohydrate: \(carbsPerServing)g"
-            self.fatLabel.text = "Fat: \(fatPerServing)g"
             
-            let intVal = Int(self.servingsEatenSlider.value)
-            self.servingSizeValue.text = "\(intVal)"
-            self.servingsEatenSlider.alpha = 1
-            self.servingSizeValue.alpha = 1
-            self.servingsEatenSlider.maximumValue = 50
-            self.servingsEatenSlider.minimumValue = 1
-            self.servingsInstructionsLabel.alpha = 1
             
+            if
+                let caloriesPerServing = parseCalories(recognizedText: recognizedText),
+                let carbsPerServing = parseCarbs(recognizedText: recognizedText),
+                let fatPerServing = parseFat(recognizedText: recognizedText),
+                let proteinPerServing = parseProtein(recognizedText: recognizedText) {
+                
+                self.doubleFat = round(Double(fatPerServing)!)
+                self.doubleCals = round(Double(caloriesPerServing)!)
+                self.doubleCarbs = round(Double(carbsPerServing)!)
+                self.doubleProtein = round(Double(proteinPerServing)!)
+                
+                self.caloriesLabel.text = "Calories: \(caloriesPerServing)"
+                self.proteinLabel.text = "Protein: \(proteinPerServing)g"
+                self.carbsLabel.text = "Carbohydrate: \(carbsPerServing)g"
+                self.fatLabel.text = "Fat: \(fatPerServing)g"
+                
+                let intVal = Int(self.servingsEatenSlider.value)
+                self.servingSizeValue.text = "\(intVal)"
+                self.servingsEatenSlider.alpha = 1
+                self.servingSizeValue.alpha = 1
+                self.servingsEatenSlider.maximumValue = 20
+                self.servingsEatenSlider.minimumValue = 0.5
+                self.servingsInstructionsLabel.alpha = 1
+                
+            } else {
+                presentAlert()
+            }
         } else {
             presentAlert()
         }
@@ -146,6 +161,23 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
             return true
         }
         return false
+    }
+    
+    func isNutritionLabel(recognizedText: [VNRecognizedTextObservation]) -> Bool {
+        
+        let indeces = (recognizedText.count / 3) - 1
+        let topThird = recognizedText[0...indeces]
+        for (_, observation) in topThird.enumerated() {
+            guard let candidate = observation.topCandidates(maximumCandidates).first else {continue}
+            if candidate.string.contains("Nutrition Facts") ||
+                candidate.string.contains("nutrition facts") ||
+                candidate.string.contains("NutritionFacts") ||
+                candidate.string.contains("nutritionfacts") {
+                return true
+            }
+        }
+        return false
+        
     }
     
     func parseProtein(recognizedText: [VNRecognizedTextObservation]) -> String? {
@@ -187,10 +219,14 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                         }
                     }
                 }
-                return nil
             }
         }
-        return proteinPerServing
+        
+        if proteinPerServing != "" {
+            return proteinPerServing
+        } else {
+            return nil
+        }
     }
     
     func parseFat(recognizedText: [VNRecognizedTextObservation]) -> String? {
@@ -230,10 +266,15 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                         }
                     }
                 }
-                return nil
+                
             }
         }
-        return fatPerServing
+        
+        if fatPerServing != "" {
+            return fatPerServing
+        } else {
+            return nil
+        }
         
     }
     
@@ -256,7 +297,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         let shortPattern = "serving\\s+size\\s+(\\d+)"
         let largePattern = "serving\\s+size(\\d+)"
         let otherPattern = "servingsize\\s+(\\d+)"
-       
+        
         if let regex = try? NSRegularExpression(pattern: shortPattern, options: .dotMatchesLineSeparators) {
             if let match = regex.firstMatch(in: servingSizeText, options: [], range: NSRange(location: 0, length: servingSizeText.count)) {
                 
@@ -295,7 +336,9 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                 }
             }
         }
-        return servingSize
+        if servingSize != "" {
+            return servingSize
+        } else {return nil}
     }
     
     
@@ -321,11 +364,11 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         
         carbsText = carbsText.lowercased()
         print(carbsText)
-     
+        
         let shortCarbsPattern = "total\\s+carb.\\s+(\\d+)"
         let largeCarbsPattern = "total\\s+carbohydrate(\\d+)"
         let otherCarbsPattern = "total\\s+carbohydrate\\s+(\\d+)"
-      
+        
         var mutableCarbsPattern = ""
         if isLarge {
             mutableCarbsPattern = largeCarbsPattern
@@ -357,12 +400,13 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                     }
                     
                 }
-               return nil
             }
             
             
         }
-        return carbPerServing
+        if carbPerServing != "" {
+            return carbPerServing
+        } else {return nil}
     }
     
     
@@ -372,7 +416,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         let maximumCandidates = 1
         var caloriesPerServing = ""
         
-    
+        
         let caloriesIndeces = (recognizedText.count / 3) - 1
         let topThird = recognizedText[2...caloriesIndeces]
         var caloriesText = ""
@@ -411,10 +455,11 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                 }
             }
             
-          return nil
             
         }
-        return caloriesPerServing
+        if caloriesPerServing != "" {
+            return caloriesPerServing
+        } else {return nil}
     }
     
     func processImage(image: UIImage) {
@@ -436,27 +481,32 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         
         //1 serving size is already set by default
         //the number of servings increment by 1
-        let value = Int(sender.value)
-        if let intCarbs = self.intCarbs,
-            let intFat = self.intFat,
-            let intCals = self.intCals,
-            let intProtein = self.intProtein {
+    
+        let value = Double(sender.value).rounded(toPlaces: 1)
+        
+        if let doubleCarbs = self.doubleCarbs,
+            let doubleFat = self.doubleFat,
+            let doubleCals = self.doubleCals,
+            let doubleProtein = self.doubleProtein {
             
-            let carbsPerServing = intCarbs * value
-            let fatPerServing = intFat * value
-            let caloriesPerServing = intCals * value
-            let proteinPerServing = intProtein * value
+            let carbsPerServing = doubleCarbs.rounded(toPlaces: 1) * value
+            let fatPerServing = doubleFat.rounded(toPlaces: 1) * value
+            let caloriesPerServing = doubleCals.rounded(toPlaces: 1) * value
+            let proteinPerServing = doubleProtein.rounded(toPlaces: 1) * value
             
-            self.proteinLabel.text = "Protein: \(proteinPerServing)g"
-            self.carbsLabel.text = "Carbohydrate: \(carbsPerServing)g"
-            self.caloriesLabel.text = "Calories: \(caloriesPerServing)"
-            self.fatLabel.text = "Fat: \(fatPerServing)g"
-            self.servingSizeValue.text = "\(value)"
+            self.proteinLabel.text = "Protein: \(proteinPerServing.rounded(toPlaces: 1))g"
+            self.carbsLabel.text = "Carbohydrate: \(carbsPerServing.rounded(toPlaces: 1))g"
+            self.caloriesLabel.text = "Calories: \(caloriesPerServing.rounded(toPlaces: 1))"
+            self.fatLabel.text = "Fat: \(fatPerServing.rounded(toPlaces: 1))g"
+            self.servingSizeValue.text = "\(value.rounded(toPlaces: 1))"
         }
         
         
     }
     
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        
+    }
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
         // process image
         
@@ -471,10 +521,26 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
             }
         }
     }
+    @IBAction func cancelTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    
 }
 
 extension Collection where Indices.Iterator.Element == Index {
     subscript (safe index: Index) -> Iterator.Element? {
         return indices.contains(index) ? self[index] : nil
+    }
+}
+
+extension Double {
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }

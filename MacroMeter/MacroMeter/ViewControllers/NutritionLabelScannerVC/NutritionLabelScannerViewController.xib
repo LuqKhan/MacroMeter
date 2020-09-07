@@ -17,6 +17,7 @@
                 <outlet property="instructionLabel" destination="M1Y-ow-QvV" id="MYC-9g-qgT"/>
                 <outlet property="proteinGreen" destination="Sij-jw-ahn" id="RfJ-v1-KKx"/>
                 <outlet property="proteinLabel" destination="vph-kh-q8r" id="p9A-t4-ypi"/>
+                <outlet property="saveButton" destination="Ier-Eb-CwJ" id="67x-Yd-Hfa"/>
                 <outlet property="scanButton" destination="3eV-7y-uUs" id="wbO-LQ-fze"/>
                 <outlet property="servingSizeValue" destination="n74-iy-p08" id="LJY-Ic-mcn"/>
                 <outlet property="servingsEatenSlider" destination="n1M-WX-LnM" id="Ehe-YM-U6B"/>
@@ -45,9 +46,10 @@
                         <action selector="scanButtonTapped:" destination="-1" eventType="touchUpInside" id="Hkc-75-M9k"/>
                     </connections>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="2" translatesAutoresizingMaskIntoConstraints="NO" id="n1M-WX-LnM">
-                    <rect key="frame" x="148" y="350" width="118" height="31"/>
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.5" maxValue="2.5" translatesAutoresizingMaskIntoConstraints="NO" id="n1M-WX-LnM">
+                    <rect key="frame" x="28" y="350" width="358" height="31"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="minimumTrackTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <connections>
                         <action selector="sliderEnded:" destination="-1" eventType="editingDidEnd" id="bSX-SJ-8Tg"/>
                         <action selector="sliderEnded:" destination="-1" eventType="valueChanged" id="dxs-Fw-0FB"/>
@@ -105,6 +107,13 @@
                         <constraint firstAttribute="height" constant="12" id="6xC-Y6-Jjp"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBM-n1-5to">
+                    <rect key="frame" x="50" y="433" width="12" height="12"/>
+                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="12" id="dgS-E2-OLv"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAc-E3-eAV">
                     <rect key="frame" x="51" y="495" width="12" height="12"/>
                     <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -128,18 +137,38 @@
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleAspectFill" translatesAutoresizingMaskIntoConstraints="NO" id="MBM-n1-5to">
-                    <rect key="frame" x="50" y="433" width="12" height="12"/>
-                    <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9H-XM-nih">
+                    <rect key="frame" x="365" y="52" width="20" height="22"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="12" id="dgS-E2-OLv"/>
+                        <constraint firstAttribute="height" constant="22" id="idL-dV-hwY"/>
                     </constraints>
-                </view>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="xmark.circle.fill" catalog="system">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="cancelTapped:" destination="-1" eventType="touchUpInside" id="OrD-Se-7rw"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ier-Eb-CwJ">
+                    <rect key="frame" x="100" y="807" width="214" height="41"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="41" id="jKt-NP-VeS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="17"/>
+                    <state key="normal" title="Save">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="saveButtonTapped:" destination="-1" eventType="touchUpInside" id="i3p-57-ClO"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="MBM-n1-5to" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="09a-82-cWu"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="vph-kh-q8r" secondAttribute="trailing" constant="20" id="0kv-fW-Jzg"/>
+                <constraint firstAttribute="trailing" secondItem="M9H-XM-nih" secondAttribute="trailing" constant="29" id="1kd-RS-aov"/>
                 <constraint firstAttribute="trailing" secondItem="EcW-ad-f7c" secondAttribute="trailing" constant="46" id="3HE-Ls-POx"/>
                 <constraint firstItem="Fwr-I3-bkN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="250" id="3fx-5l-SdD"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bHc-jB-mx3" secondAttribute="trailing" constant="69" id="7cZ-9i-jEO"/>
@@ -153,13 +182,16 @@
                 <constraint firstItem="nLy-8M-r71" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="71" id="IoM-LR-WPX"/>
                 <constraint firstItem="asv-o0-omY" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="51" id="JQI-L0-7XF"/>
                 <constraint firstAttribute="trailing" secondItem="MBM-n1-5to" secondAttribute="trailing" constant="352" id="KT6-5w-NGS"/>
+                <constraint firstItem="M9H-XM-nih" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="52" id="Kcd-Ua-5kv"/>
                 <constraint firstItem="KAc-E3-eAV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="495" id="LAA-qY-94Y"/>
                 <constraint firstItem="M1Y-ow-QvV" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="LDJ-aY-QiJ"/>
-                <constraint firstItem="n1M-WX-LnM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="150" id="MN7-cc-gan"/>
+                <constraint firstItem="n1M-WX-LnM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="MN7-cc-gan"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3eV-7y-uUs" secondAttribute="trailing" constant="176" id="Oh4-4l-H0B"/>
+                <constraint firstItem="Ier-Eb-CwJ" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="Pgd-MU-R4M"/>
                 <constraint firstItem="EcW-ad-f7c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="427" id="QXx-OM-9D2"/>
                 <constraint firstItem="vph-kh-q8r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="459" id="RwR-mt-DCv"/>
                 <constraint firstAttribute="trailing" secondItem="Sij-jw-ahn" secondAttribute="trailing" constant="352" id="SiX-08-ew5"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ier-Eb-CwJ" secondAttribute="trailing" constant="100" id="TXW-uN-jec"/>
                 <constraint firstItem="EcW-ad-f7c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="70" id="Tk2-Nb-Zv0"/>
                 <constraint firstItem="n74-iy-p08" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="Y8o-Co-nbK"/>
                 <constraint firstItem="n74-iy-p08" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="310" id="ZJ2-8j-Rai"/>
@@ -168,7 +200,7 @@
                 <constraint firstItem="M1Y-ow-QvV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="cuI-Dx-Ax2"/>
                 <constraint firstItem="KAc-E3-eAV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="51" id="eUE-f6-IWp"/>
                 <constraint firstItem="bHc-jB-mx3" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="490" id="fXZ-yn-Jze"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="n1M-WX-LnM" secondAttribute="trailing" constant="150" id="igG-hM-SlB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="n1M-WX-LnM" secondAttribute="trailing" constant="30" id="igG-hM-SlB"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Fwr-I3-bkN" secondAttribute="trailing" constant="69" id="lVO-K7-y7m"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="M1Y-ow-QvV" secondAttribute="trailing" constant="69" id="pKN-KJ-25T"/>
                 <constraint firstItem="Fwr-I3-bkN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="70" id="qPZ-86-8GS"/>
@@ -176,6 +208,8 @@
                 <constraint firstItem="Sij-jw-ahn" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="50" id="t3u-ME-pUB"/>
                 <constraint firstItem="asv-o0-omY" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="522" id="tdz-fa-XUS"/>
                 <constraint firstItem="n1M-WX-LnM" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="350" id="tji-Fx-NsV"/>
+                <constraint firstItem="Ier-Eb-CwJ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="807" id="vIc-BW-g1V"/>
+                <constraint firstItem="M9H-XM-nih" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="365" id="xfL-sg-qoy"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="3eV-7y-uUs" secondAttribute="bottom" constant="750" id="xlI-pK-U5d"/>
                 <constraint firstItem="bHc-jB-mx3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="71" id="y0P-KB-zpa"/>
                 <constraint firstItem="3eV-7y-uUs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="60" id="y5e-QE-K4D"/>
@@ -186,5 +220,6 @@
     </objects>
     <resources>
         <image name="camera.viewfinder" catalog="system" width="128" height="114"/>
+        <image name="xmark.circle.fill" catalog="system" width="128" height="121"/>
     </resources>
 </document>
