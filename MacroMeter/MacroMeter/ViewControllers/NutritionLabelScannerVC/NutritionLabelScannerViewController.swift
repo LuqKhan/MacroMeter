@@ -17,9 +17,18 @@ protocol NutritionDataDelegate {
 
 class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraViewControllerDelegate{
     
+    @IBOutlet var instructionView: UIView!
+      @IBOutlet weak var helpButton: UIButton!
+    
+//    @IBOutlet weak var captureInstructionsHeader: UILabel!
+//    @IBOutlet weak var oneInstruction: UILabel!
     @IBOutlet weak var servingSizeValue: UILabel!
     @IBOutlet weak var proteinLabel: UILabel!
+   // @IBOutlet weak var twoInstruction: UILabel!
     
+//    @IBOutlet weak var nutritionLabelImageView: UIImageView!
+//    @IBOutlet weak var fourInstruction: UILabel!
+//    @IBOutlet weak var threeinstruction: UILabel!
     @IBOutlet weak var carbsLabel: UILabel!
     
     @IBOutlet weak var fatLabel: UILabel!
@@ -53,12 +62,15 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     var finalProtein: Double?
     var delegate: NutritionDataDelegate?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.helpButton.layer.cornerRadius = 10
+        self.helpButton.layer.borderWidth = 1
+        self.helpButton.layer.borderColor = UIColor.white.cgColor
         self.saveButton.layer.cornerRadius = 10
-             self.saveButton.layer.borderWidth = 1
-             self.saveButton.layer.borderColor = UIColor.white.cgColor
+        self.saveButton.layer.borderWidth = 1
+        self.saveButton.layer.borderColor = UIColor.white.cgColor
         self.servingSizeValue.alpha = 0
         blueCalories.layer.cornerRadius = 3
         proteinGreen.layer.cornerRadius = 3
@@ -84,6 +96,14 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         })
         request.recognitionLevel = .accurate
         request.usesLanguageCorrection = true
+        
+    }
+    @IBAction func helpButtonTapped(_ sender: UIButton) {
+        self.view.addSubview(instructionView)
+    }
+    
+    @IBAction func exitInstructionsTapped(_ sender: UIButton) {
+        self.instructionView.removeFromSuperview()
     }
     
     
@@ -92,8 +112,9 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         self.present(self.cameraVC, animated: true, completion: nil)
     }
     
+
     private func presentAlert() {
-        let uiAlert = UIAlertController(title: "Please Scan Again", message: "Be Sure To Follow The Guidelines On How To Capture A Nutrition Label", preferredStyle: .alert)
+        let uiAlert = UIAlertController(title: "Please Scan Again", message: "Please tap the 'Help' button for guidelines on how to capture a nutrition label.", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
         uiAlert.addAction(action)
         self.present(uiAlert, animated: true) {
@@ -111,9 +132,25 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         self.proteinGreen.alpha = 0
         self.carbRed.alpha = 0
         self.yellowFat.alpha = 0
+        self.servingsEatenSlider.alpha = 0
+        self.servingSizeValue.alpha = 0
+        self.servingsInstructionsLabel.alpha = 0
+//       self.captureInstructionsHeader.alpha = 1
+//                     self.oneInstruction.alpha = 1
+//                     self.twoInstruction.alpha = 1
+//                     self.threeinstruction.alpha = 1
+//                     self.fourInstruction.alpha = 1
+//                     self.nutritionLabelImageView.alpha = 1
     }
     
     private func showLabels() {
+//        self.captureInstructionsHeader.alpha = 0
+//                            self.oneInstruction.alpha = 0
+//                            self.twoInstruction.alpha = 0
+//                            self.threeinstruction.alpha = 0
+//                            self.fourInstruction.alpha = 0
+//                            self.nutritionLabelImageView.alpha = 0
+       
         self.saveButton.alpha = 1
         self.blueCalories.alpha = 1
         self.caloriesLabel.alpha = 1
@@ -123,6 +160,9 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         self.proteinGreen.alpha = 1
         self.carbRed.alpha = 1
         self.yellowFat.alpha = 1
+        self.servingsEatenSlider.alpha = 1
+        self.servingSizeValue.alpha = 1
+        self.servingsInstructionsLabel.alpha = 1
     }
     
     func addRecognizedText(recognizedText: [VNRecognizedTextObservation]) {
@@ -130,35 +170,32 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         
         if self.isNutritionLabel(recognizedText: recognizedText) {
             
+            let caloriesPerServing = Double(parseCalories(recognizedText: recognizedText) ?? "")?.rounded(toPlaces: 1)
+            let carbsPerServing = Double(parseCarbs(recognizedText: recognizedText) ?? "")?.rounded(toPlaces: 1)
+            let fatPerServing = Double(parseFat(recognizedText: recognizedText) ?? "")?.rounded(toPlaces: 1)
+            let proteinPerServing = Double(parseProtein(recognizedText: recognizedText) ?? "")?.rounded(toPlaces: 1)
+            
+            self.doubleFat = fatPerServing
+            self.doubleCals = caloriesPerServing
+            self.doubleCarbs = carbsPerServing
+            self.doubleProtein = proteinPerServing
             
             
-            if
-                let caloriesPerServing = parseCalories(recognizedText: recognizedText),
-                let carbsPerServing = parseCarbs(recognizedText: recognizedText),
-                let fatPerServing = parseFat(recognizedText: recognizedText),
-                let proteinPerServing = parseProtein(recognizedText: recognizedText) {
-                
-                self.doubleFat = round(Double(fatPerServing)!)
-                self.doubleCals = round(Double(caloriesPerServing)!)
-                self.doubleCarbs = round(Double(carbsPerServing)!)
-                self.doubleProtein = round(Double(proteinPerServing)!)
-                
-                self.caloriesLabel.text = "Calories: \(caloriesPerServing)"
-                self.proteinLabel.text = "Protein: \(proteinPerServing)g"
-                self.carbsLabel.text = "Carbohydrate: \(carbsPerServing)g"
-                self.fatLabel.text = "Fat: \(fatPerServing)g"
-                
-                let intVal = Int(self.servingsEatenSlider.value)
-                self.servingSizeValue.text = "\(intVal)"
-                self.servingsEatenSlider.alpha = 1
-                self.servingSizeValue.alpha = 1
-                self.servingsEatenSlider.maximumValue = 20.5
-                self.servingsEatenSlider.minimumValue = 0.25
-                self.servingsInstructionsLabel.alpha = 1
-                
-            } else {
-                presentAlert()
-            }
+            
+            self.caloriesLabel.text = "Calories: \(caloriesPerServing ?? 0.0)"
+            self.proteinLabel.text = "Protein: \(proteinPerServing ?? 0.0)g"
+            self.carbsLabel.text = "Carbohydrate: \(carbsPerServing ?? 0.0)g"
+            self.fatLabel.text = "Fat: \(fatPerServing ?? 0.0)g"
+            
+            let intVal = Int(self.servingsEatenSlider.value)
+            self.servingSizeValue.text = "\(intVal)"
+            self.servingsEatenSlider.alpha = 1
+            self.servingSizeValue.alpha = 1
+            self.servingsEatenSlider.maximumValue = 20.5
+            self.servingsEatenSlider.minimumValue = 0.25
+            self.servingsInstructionsLabel.alpha = 1
+            
+            
         } else {
             presentAlert()
         }
@@ -185,7 +222,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                 candidate.string.contains("nutrition facts") ||
                 candidate.string.contains("NutritionFacts") ||
                 candidate.string.contains("nutritionfacts") ||
-            candidate.string.contains("nutrition") || candidate.string.contains("facts") || candidate.string.contains("Nutrition") || candidate.string.contains("Facts") {
+                candidate.string.contains("nutrition") || candidate.string.contains("facts") || candidate.string.contains("Nutrition") || candidate.string.contains("Facts") {
                 return true
             }
         }
@@ -381,6 +418,8 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         let shortCarbsPattern = "total\\s+carb.\\s+(\\d+)"
         let largeCarbsPattern = "total\\s+carbohydrate(\\d+)"
         let otherCarbsPattern = "total\\s+carbohydrate\\s+(\\d+)"
+        let otherShortCarbsPattern = "total\\s+carb.(\\d+)"
+        
         
         var mutableCarbsPattern = ""
         if isLarge {
@@ -412,6 +451,17 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                         }
                     }
                     
+                } else if let otherShortRegex = try? NSRegularExpression(pattern: otherShortCarbsPattern, options: .dotMatchesLineSeparators) {
+                    if let match = otherShortRegex.firstMatch(in: carbsText, options: [], range: NSRange(location: 0, length: carbsText.count)) {
+                        if let wholeRange = Range(match.range(at: 0), in: carbsText) {
+                            let wholeMatch = carbsText[wholeRange]
+                            for character in wholeMatch {
+                                if character.isNumber {
+                                    carbPerServing.append(character)
+                                }
+                            }
+                        }
+                    }
                 }
             }
             
@@ -444,11 +494,11 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
             }
         }
         
-//        if isLarge == true {
-//          textArray = recognizedText
-//        } else {
-//            textArray.append(contentsOf: topThird)
-//        }
+        //        if isLarge == true {
+        //          textArray = recognizedText
+        //        } else {
+        //            textArray.append(contentsOf: topThird)
+        //        }
         
         for (_, observation) in recognizedText.enumerated() {
             guard let candidate = observation.topCandidates(maximumCandidates).first else {continue}
@@ -514,7 +564,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
             let doubleFat = self.doubleFat,
             let doubleCals = self.doubleCals,
             let doubleProtein = self.doubleProtein {
-         
+            
             let carbsPerServing = doubleCarbs.rounded(toPlaces: 1) * value
             let fatPerServing = doubleFat.rounded(toPlaces: 1) * value
             let caloriesPerServing = doubleCals.rounded(toPlaces: 1) * value
@@ -525,7 +575,6 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
             self.caloriesLabel.text = "Calories: \(caloriesPerServing.rounded(toPlaces: 1))"
             self.fatLabel.text = "Fat: \(fatPerServing.rounded(toPlaces: 1))g"
             self.servingSizeValue.text = "\(value.rounded(toPlaces: 1))"
-            
             
             self.finalFat = fatPerServing
             self.finalCals = caloriesPerServing
@@ -540,14 +589,15 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     
     
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        self.hideLabels()
         if let proteinPerServing = self.finalProtein,
             let fatPerServing = self.finalFat,
             let carbsPerServing = self.finalCarbs,
             let caloriesPerServing = self.finalCals {
-           
+            
             self.delegate?.retrieveNutritionData(fat: fatPerServing, protein: proteinPerServing, carbs: carbsPerServing, cals: caloriesPerServing)
             self.dismiss(animated: true, completion: nil)
-           
+            
         }
         
     }
@@ -564,6 +614,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         }
     }
     @IBAction func cancelTapped(_ sender: UIButton) {
+        self.hideLabels()
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -581,3 +632,4 @@ extension Double {
         return (self * divisor).rounded() / divisor
     }
 }
+

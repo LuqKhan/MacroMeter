@@ -36,7 +36,7 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
     @IBOutlet weak var carbsLabel: UILabel!
     
     @IBOutlet weak var fatLabel: UILabel!
-    
+     
    
     
     let menuDropDown = DropDown()
@@ -148,7 +148,10 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
     func prepareUI() {
         
 
-        
+        self.proteinGreen.layer.cornerRadius = 3
+        self.carbRed.layer.cornerRadius = 3
+        self.caloriesBlue.layer.cornerRadius = 3
+        self.yelloFat.layer.cornerRadius = 3
         
         if let gender = UserDefaults.standard.object(forKey: "gender") as? String,
             let age = UserDefaults.standard.object(forKey: "age") as? String ,
@@ -172,7 +175,7 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
         menuDropDown.selectionBackgroundColor = .black
         
         self.menuDropDown.anchorView = self.menuButton
-        self.menuDropDown.dataSource = ["Edit", "Meal Breakdown", "Nutrition Label Scanner"]
+        self.menuDropDown.dataSource = ["Edit", "Meal Breakdown", "Log Macros"]
         
         self.menuButton.layer.cornerRadius = 10
         self.menuButton.layer.borderWidth = 1
@@ -193,7 +196,7 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
                 breakdownVC.modalPresentationStyle = .overFullScreen
                 self.present(breakdownVC, animated: true, completion: nil)
             } else {
-           
+                
                 self.scannerVC.modalPresentationStyle = .overFullScreen
                 self.present(self.scannerVC, animated: true, completion: nil)
             }
