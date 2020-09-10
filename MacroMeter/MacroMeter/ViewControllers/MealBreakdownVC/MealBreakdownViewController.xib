@@ -29,7 +29,7 @@
                     <rect key="frame" x="0.0" y="250" width="414" height="646"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="xtq-8c-s3T">
-                            <rect key="frame" x="135" y="0.0" width="234" height="108.5"/>
+                            <rect key="frame" x="135" y="0.0" width="269" height="108.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Protein" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bU8-jB-taF">
                                     <rect key="frame" x="0.0" y="0.0" width="70" height="23.5"/>
@@ -81,7 +81,7 @@
                         <constraint firstAttribute="trailing" secondItem="pcf-Le-bD7" secondAttribute="trailing" constant="287" id="Y2f-Gb-rkD"/>
                         <constraint firstItem="xtq-8c-s3T" firstAttribute="top" secondItem="adx-6W-FQc" secondAttribute="top" id="ddw-xF-xyS"/>
                         <constraint firstItem="so6-qW-nMP" firstAttribute="top" secondItem="adx-6W-FQc" secondAttribute="top" constant="93" id="kNG-Mb-lkx"/>
-                        <constraint firstAttribute="trailing" secondItem="xtq-8c-s3T" secondAttribute="trailing" constant="45" id="lWn-7L-kdY"/>
+                        <constraint firstAttribute="trailing" secondItem="xtq-8c-s3T" secondAttribute="trailing" constant="10" id="lWn-7L-kdY"/>
                         <constraint firstItem="BPu-8c-ePc" firstAttribute="top" secondItem="adx-6W-FQc" secondAttribute="top" constant="8" id="lxs-rI-hCx"/>
                         <constraint firstItem="BPu-8c-ePc" firstAttribute="leading" secondItem="adx-6W-FQc" secondAttribute="leading" constant="115" id="mLQ-6b-wo1"/>
                         <constraint firstAttribute="trailing" secondItem="BPu-8c-ePc" secondAttribute="trailing" constant="287" id="t5h-hg-u2A"/>
@@ -90,7 +90,7 @@
                         <constraint firstItem="pcf-Le-bD7" firstAttribute="leading" secondItem="adx-6W-FQc" secondAttribute="leading" constant="115" id="ypa-aA-ido"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Breakdown" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwi-ck-U5h">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Macros Per Meal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vwi-ck-U5h">
                     <rect key="frame" x="43" y="100" width="328" height="42"/>
                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="36"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

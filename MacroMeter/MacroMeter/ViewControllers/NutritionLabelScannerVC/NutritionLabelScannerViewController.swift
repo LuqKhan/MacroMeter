@@ -11,6 +11,10 @@ import Vision
 import VisionKit
 import NaturalLanguage
 
+protocol NutritionDataDelegate {
+    func retrieveNutritionData(fat: Double, protein: Double, carbs: Double, cals: Double) 
+}
+
 class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraViewControllerDelegate{
     
     @IBOutlet weak var servingSizeValue: UILabel!
@@ -21,6 +25,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     @IBOutlet weak var fatLabel: UILabel!
     
     @IBOutlet weak var servingsEatenSlider: UISlider!
+    
     
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var caloriesLabel: UILabel!
@@ -41,6 +46,12 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     var doubleFat: Double?
     var doubleProtein: Double?
     var doubleCals: Double?
+    
+    var finalCals: Double?
+    var finalCarbs: Double?
+    var finalFat: Double?
+    var finalProtein: Double?
+    var delegate: NutritionDataDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -141,8 +152,8 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                 self.servingSizeValue.text = "\(intVal)"
                 self.servingsEatenSlider.alpha = 1
                 self.servingSizeValue.alpha = 1
-                self.servingsEatenSlider.maximumValue = 20
-                self.servingsEatenSlider.minimumValue = 0.5
+                self.servingsEatenSlider.maximumValue = 20.5
+                self.servingsEatenSlider.minimumValue = 0.25
                 self.servingsInstructionsLabel.alpha = 1
                 
             } else {
@@ -169,10 +180,12 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         let topThird = recognizedText[0...indeces]
         for (_, observation) in topThird.enumerated() {
             guard let candidate = observation.topCandidates(maximumCandidates).first else {continue}
+            print(candidate.string)
             if candidate.string.contains("Nutrition Facts") ||
                 candidate.string.contains("nutrition facts") ||
                 candidate.string.contains("NutritionFacts") ||
-                candidate.string.contains("nutritionfacts") {
+                candidate.string.contains("nutritionfacts") ||
+            candidate.string.contains("nutrition") || candidate.string.contains("facts") || candidate.string.contains("Nutrition") || candidate.string.contains("Facts") {
                 return true
             }
         }
@@ -417,11 +430,27 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         var caloriesPerServing = ""
         
         
-        let caloriesIndeces = (recognizedText.count / 3) - 1
+        let caloriesIndeces = (recognizedText.count / 2) - 1
         let topThird = recognizedText[2...caloriesIndeces]
         var caloriesText = ""
+        var textArray: [VNRecognizedTextObservation] = []
+        var isLarge = false
+        
         
         for (_, observation) in topThird.enumerated() {
+            guard let candidate = observation.topCandidates(maximumCandidates).first else {continue}
+            if isLargeLabel(candidateString: candidate.string) && isLarge == false {
+                isLarge = true
+            }
+        }
+        
+//        if isLarge == true {
+//          textArray = recognizedText
+//        } else {
+//            textArray.append(contentsOf: topThird)
+//        }
+        
+        for (_, observation) in recognizedText.enumerated() {
             guard let candidate = observation.topCandidates(maximumCandidates).first else {continue}
             caloriesText.append(candidate.string)
         }
@@ -479,16 +508,13 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     
     @IBAction func sliderEnded(_ sender: UISlider) {
         
-        //1 serving size is already set by default
-        //the number of servings increment by 1
-    
         let value = Double(sender.value).rounded(toPlaces: 1)
         
         if let doubleCarbs = self.doubleCarbs,
             let doubleFat = self.doubleFat,
             let doubleCals = self.doubleCals,
             let doubleProtein = self.doubleProtein {
-            
+         
             let carbsPerServing = doubleCarbs.rounded(toPlaces: 1) * value
             let fatPerServing = doubleFat.rounded(toPlaces: 1) * value
             let caloriesPerServing = doubleCals.rounded(toPlaces: 1) * value
@@ -499,18 +525,34 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
             self.caloriesLabel.text = "Calories: \(caloriesPerServing.rounded(toPlaces: 1))"
             self.fatLabel.text = "Fat: \(fatPerServing.rounded(toPlaces: 1))g"
             self.servingSizeValue.text = "\(value.rounded(toPlaces: 1))"
+            
+            
+            self.finalFat = fatPerServing
+            self.finalCals = caloriesPerServing
+            self.finalCarbs = carbsPerServing
+            self.finalProtein = proteinPerServing
         }
         
         
     }
     
+    
+    
+    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
+        if let proteinPerServing = self.finalProtein,
+            let fatPerServing = self.finalFat,
+            let carbsPerServing = self.finalCarbs,
+            let caloriesPerServing = self.finalCals {
+           
+            self.delegate?.retrieveNutritionData(fat: fatPerServing, protein: proteinPerServing, carbs: carbsPerServing, cals: caloriesPerServing)
+            self.dismiss(animated: true, completion: nil)
+           
+        }
         
     }
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
         // process image
-        
-        
         controller.dismiss(animated: true) {
             //HERE YOU CAN MAKE IT SO ONLY THE VERY LAST IMAGE IS USED.
             DispatchQueue.global(qos: .userInitiated).async {
@@ -524,11 +566,6 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     @IBAction func cancelTapped(_ sender: UIButton) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    
-    
-    
-    
 }
 
 extension Collection where Indices.Iterator.Element == Index {

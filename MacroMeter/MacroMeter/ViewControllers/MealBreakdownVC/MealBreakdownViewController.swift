@@ -80,9 +80,9 @@ class MealBreakdownViewController: UIViewController {
                 let intCarb = Int(carbs)
                 let intProtein = Int(protein)
                 
-                self.fatLabel.text = "Fat: \(intFat)g"
-                self.carbsLabel.text = "Carbohydrates: \(intCarb)g"
-                self.proteinLabel.text = "Protein: \(intProtein)g"
+                self.fatLabel.text = "Fat: \(intFat)g/meal"
+                self.carbsLabel.text = "Carbohydrates: \(intCarb)g/meal"
+                self.proteinLabel.text = "Protein: \(intProtein)g/meal"
                 self.showLabels()
                 self.pieChart.models.removeAll()
                 self.pieChart.models = [PieSliceModel(value: fat, color: .yellow), PieSliceModel(value: carbs, color: .red), PieSliceModel(value: protein, color: .green)]
@@ -97,9 +97,9 @@ class MealBreakdownViewController: UIViewController {
                 let intFat = Int(fat)
                 let intCarb = Int(carbs)
                 let intProtein = Int(protein)
-                self.fatLabel.text = "Fat: \(intFat)g"
-                self.carbsLabel.text = "Carbohydrates: \(intCarb)g"
-                self.proteinLabel.text = "Protein: \(intProtein)g"
+                self.fatLabel.text = "Fat: \(intFat)g/meal"
+                self.carbsLabel.text = "Carbohydrates: \(intCarb)g/meal"
+                self.proteinLabel.text = "Protein: \(intProtein)g/meal"
                 self.showLabels()
                 self.pieChart.models.removeAll()
                 self.pieChart.models = [PieSliceModel(value: fat, color: .yellow), PieSliceModel(value: carbs, color: .red), PieSliceModel(value: protein, color: .green)]
@@ -115,9 +115,9 @@ class MealBreakdownViewController: UIViewController {
                 let intFat = Int(fat)
                 let intCarb = Int(carbs)
                 let intProtein = Int(protein)
-                self.fatLabel.text = "Fat: \(intFat)g"
-                self.carbsLabel.text = "Carbohydrates: \(intCarb)g"
-                self.proteinLabel.text = "Protein: \(intProtein)g"
+                self.fatLabel.text = "Fat: \(intFat)g/meal"
+                self.carbsLabel.text = "Carbohydrates: \(intCarb)g/meal"
+                self.proteinLabel.text = "Protein: \(intProtein)g/meal"
                 self.showLabels()
                 self.pieChart.models.removeAll()
                 self.pieChart.models = [PieSliceModel(value: fat, color: .yellow), PieSliceModel(value: carbs, color: .red), PieSliceModel(value: protein, color: .green)]
