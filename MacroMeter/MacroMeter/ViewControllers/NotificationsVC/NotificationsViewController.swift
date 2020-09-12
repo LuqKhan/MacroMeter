@@ -25,9 +25,7 @@ class NotificationsViewController: UIViewController {
     }
     
     @objc func scheduleNotifications() {
-        
     }
-    
     
     @IBAction func notificationSwitched(_ sender: UISwitch) {
         if sender.isOn {

@@ -19,16 +19,8 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     
     @IBOutlet var instructionView: UIView!
       @IBOutlet weak var helpButton: UIButton!
-    
-//    @IBOutlet weak var captureInstructionsHeader: UILabel!
-//    @IBOutlet weak var oneInstruction: UILabel!
     @IBOutlet weak var servingSizeValue: UILabel!
     @IBOutlet weak var proteinLabel: UILabel!
-   // @IBOutlet weak var twoInstruction: UILabel!
-    
-//    @IBOutlet weak var nutritionLabelImageView: UIImageView!
-//    @IBOutlet weak var fourInstruction: UILabel!
-//    @IBOutlet weak var threeinstruction: UILabel!
     @IBOutlet weak var carbsLabel: UILabel!
     
     @IBOutlet weak var fatLabel: UILabel!
@@ -77,6 +69,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         carbRed.layer.cornerRadius = 3
         yellowFat.layer.cornerRadius = 3
         self.hideLabels()
+        
         cameraVC = VNDocumentCameraViewController()
         
         self.servingsInstructionsLabel.alpha = 0
@@ -135,21 +128,9 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         self.servingsEatenSlider.alpha = 0
         self.servingSizeValue.alpha = 0
         self.servingsInstructionsLabel.alpha = 0
-//       self.captureInstructionsHeader.alpha = 1
-//                     self.oneInstruction.alpha = 1
-//                     self.twoInstruction.alpha = 1
-//                     self.threeinstruction.alpha = 1
-//                     self.fourInstruction.alpha = 1
-//                     self.nutritionLabelImageView.alpha = 1
     }
     
     private func showLabels() {
-//        self.captureInstructionsHeader.alpha = 0
-//                            self.oneInstruction.alpha = 0
-//                            self.twoInstruction.alpha = 0
-//                            self.threeinstruction.alpha = 0
-//                            self.fourInstruction.alpha = 0
-//                            self.nutritionLabelImageView.alpha = 0
        
         self.saveButton.alpha = 1
         self.blueCalories.alpha = 1
@@ -346,7 +327,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         
         let shortPattern = "serving\\s+size\\s+(\\d+)"
         let largePattern = "serving\\s+size(\\d+)"
-        let otherPattern = "servingsize\\s+(\\d+)"
+     
         
         if let regex = try? NSRegularExpression(pattern: shortPattern, options: .dotMatchesLineSeparators) {
             if let match = regex.firstMatch(in: servingSizeText, options: [], range: NSRange(location: 0, length: servingSizeText.count)) {
@@ -417,9 +398,8 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         
         let shortCarbsPattern = "total\\s+carb.\\s+(\\d+)"
         let largeCarbsPattern = "total\\s+carbohydrate(\\d+)"
-        let otherCarbsPattern = "total\\s+carbohydrate\\s+(\\d+)"
+        let otherLongCarbsPattern = "total\\s+carbohydrate\\s+(\\d+)"
         let otherShortCarbsPattern = "total\\s+carb.(\\d+)"
-        
         
         var mutableCarbsPattern = ""
         if isLarge {
@@ -440,7 +420,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                         }
                     }
                 }
-            } else if let otherRegex = try? NSRegularExpression(pattern: otherCarbsPattern, options: .dotMatchesLineSeparators) {
+            } else if let otherRegex = try? NSRegularExpression(pattern: otherLongCarbsPattern, options: .dotMatchesLineSeparators) {
                 if let match = otherRegex.firstMatch(in: carbsText, options: [], range: NSRange(location: 0, length: carbsText.count)) {
                     if let wholeRange = Range(match.range(at: 0), in: carbsText) {
                         let wholeMatch = carbsText[wholeRange]
@@ -472,18 +452,14 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         } else {return nil}
     }
     
-    
-    
     func parseCalories(recognizedText: [VNRecognizedTextObservation]) -> String? {
         
         let maximumCandidates = 1
         var caloriesPerServing = ""
         
-        
         let caloriesIndeces = (recognizedText.count / 2) - 1
         let topThird = recognizedText[2...caloriesIndeces]
         var caloriesText = ""
-        var textArray: [VNRecognizedTextObservation] = []
         var isLarge = false
         
         
@@ -493,13 +469,6 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
                 isLarge = true
             }
         }
-        
-        //        if isLarge == true {
-        //          textArray = recognizedText
-        //        } else {
-        //            textArray.append(contentsOf: topThird)
-        //        }
-        
         for (_, observation) in recognizedText.enumerated() {
             guard let candidate = observation.topCandidates(maximumCandidates).first else {continue}
             caloriesText.append(candidate.string)
@@ -555,7 +524,6 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         }
     }
     
-    
     @IBAction func sliderEnded(_ sender: UISlider) {
         
         let value = Double(sender.value).rounded(toPlaces: 1)
@@ -585,9 +553,6 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         
     }
     
-    
-    
-    
     @IBAction func saveButtonTapped(_ sender: UIButton) {
         self.hideLabels()
         if let proteinPerServing = self.finalProtein,
@@ -602,9 +567,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         
     }
     func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
-        // process image
         controller.dismiss(animated: true) {
-            //HERE YOU CAN MAKE IT SO ONLY THE VERY LAST IMAGE IS USED.
             DispatchQueue.global(qos: .userInitiated).async {
                 for pageNumber in 0 ..< scan.pageCount {
                     let image = scan.imageOfPage(at: pageNumber)
@@ -626,7 +589,6 @@ extension Collection where Indices.Iterator.Element == Index {
 }
 
 extension Double {
-    /// Rounds the double to decimal places value
     func rounded(toPlaces places:Int) -> Double {
         let divisor = pow(10.0, Double(places))
         return (self * divisor).rounded() / divisor

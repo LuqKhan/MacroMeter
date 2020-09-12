@@ -33,8 +33,8 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scan a nutrition label to easily track macronutrients." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1Y-ow-QvV">
-                    <rect key="frame" x="70" y="144" width="275" height="68"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the camera button to capture a nutrition label to easily track macronutrients." textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M1Y-ow-QvV">
+                    <rect key="frame" x="70" y="144" width="275" height="88"/>
                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
@@ -190,7 +190,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="bHc-jB-mx3" secondAttribute="trailing" constant="69" id="7cZ-9i-jEO"/>
                 <constraint firstAttribute="trailing" secondItem="KAc-E3-eAV" secondAttribute="trailing" constant="351" id="8FM-Eg-Mso"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nLy-8M-r71" secondAttribute="trailing" constant="69" id="Ae0-cR-fsp"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="M1Y-ow-QvV" secondAttribute="bottom" constant="650" id="B94-YY-1VC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="M1Y-ow-QvV" secondAttribute="bottom" constant="630" id="B94-YY-1VC"/>
                 <constraint firstItem="3eV-7y-uUs" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="177" id="BRt-W5-qQs"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="n74-iy-p08" secondAttribute="trailing" constant="100" id="C0b-45-Ynl"/>
                 <constraint firstAttribute="trailing" secondItem="KNW-cP-Czd" secondAttribute="trailing" constant="324" id="Dlb-ax-Z4L"/>
@@ -249,7 +249,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4. The following is an example of a nutrition label." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W8S-Gg-wac">
-                    <rect key="frame" x="63" y="303" width="320" height="33"/>
+                    <rect key="frame" x="63" y="325" width="320" height="33"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="33" id="eze-2t-BRf"/>
                     </constraints>
@@ -258,7 +258,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="labelImage" translatesAutoresizingMaskIntoConstraints="NO" id="atY-Bc-IdP">
-                    <rect key="frame" x="95" y="400" width="240" height="260"/>
+                    <rect key="frame" x="95" y="422" width="240" height="260"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="260" id="7dd-We-cO3"/>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="260" id="yBm-En-qBg"/>
@@ -274,9 +274,9 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3. Drag the corners such that the text within the label is not cut off." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXT-31-GEx">
-                    <rect key="frame" x="63" y="278" width="320" height="17"/>
+                    <rect key="frame" x="63" y="278" width="320" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="17" id="t6a-z0-BAa"/>
+                        <constraint firstAttribute="height" constant="40" id="t6a-z0-BAa"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -321,7 +321,7 @@
                 <constraint firstItem="zSn-Ks-aos" firstAttribute="trailing" secondItem="W8S-Gg-wac" secondAttribute="trailing" constant="31" id="sCx-HQ-hP4"/>
                 <constraint firstItem="W8S-Gg-wac" firstAttribute="leading" secondItem="zSn-Ks-aos" secondAttribute="leading" constant="63" id="tkv-0b-NNB"/>
                 <constraint firstAttribute="trailing" secondItem="LDu-kg-mjt" secondAttribute="trailing" constant="374" id="tqM-T3-4VL"/>
-                <constraint firstItem="W8S-Gg-wac" firstAttribute="top" secondItem="vMN-qn-buq" secondAttribute="top" constant="303" id="va7-uf-rBf"/>
+                <constraint firstItem="W8S-Gg-wac" firstAttribute="top" secondItem="vMN-qn-buq" secondAttribute="top" constant="325" id="va7-uf-rBf"/>
                 <constraint firstItem="zSn-Ks-aos" firstAttribute="trailing" secondItem="atY-Bc-IdP" secondAttribute="trailing" constant="79" id="zAf-M7-UwD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="zSn-Ks-aos"/>

@@ -48,28 +48,28 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="qZG-ve-5cv">
-                    <rect key="frame" x="266" y="240" width="138" height="151"/>
+                    <rect key="frame" x="160" y="240" width="254" height="151"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2400" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IKh-te-Fhp">
-                            <rect key="frame" x="0.0" y="0.0" width="138" height="23.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="254" height="23.5"/>
                             <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9M-ew-fHY">
-                            <rect key="frame" x="0.0" y="42.5" width="138" height="23.5"/>
+                            <rect key="frame" x="0.0" y="42.5" width="254" height="23.5"/>
                             <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="65g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ge6-iu-Kt4">
-                            <rect key="frame" x="0.0" y="85" width="138" height="23.5"/>
+                            <rect key="frame" x="0.0" y="85" width="254" height="23.5"/>
                             <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45g" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tl-xI-zuW">
-                            <rect key="frame" x="0.0" y="127.5" width="138" height="23.5"/>
+                            <rect key="frame" x="0.0" y="127.5" width="254" height="23.5"/>
                             <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="20"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
@@ -150,7 +150,7 @@
                     </constraints>
                 </view>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="WpX-Lo-aay">
-                    <rect key="frame" x="40" y="240" width="168" height="151"/>
+                    <rect key="frame" x="100" y="240" width="154" height="151"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Calories" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3xM-Kh-qxZ">
                             <rect key="frame" x="0.0" y="0.0" width="81.5" height="23.5"/>
@@ -200,15 +200,15 @@
                 <constraint firstAttribute="trailing" secondItem="clZ-cD-7gG" secondAttribute="trailing" constant="270" id="D6b-6C-XuQ"/>
                 <constraint firstItem="vNy-Fe-V5f" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="570" id="J3m-b5-7H3"/>
                 <constraint firstItem="O8v-fc-r1n" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="130" id="QPD-wb-pOj"/>
-                <constraint firstItem="qZG-ve-5cv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="266" id="RvE-PB-7WA"/>
-                <constraint firstAttribute="trailing" secondItem="WpX-Lo-aay" secondAttribute="trailing" constant="206" id="Um3-Xl-1yk"/>
+                <constraint firstItem="qZG-ve-5cv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="160" id="RvE-PB-7WA"/>
+                <constraint firstAttribute="trailing" secondItem="WpX-Lo-aay" secondAttribute="trailing" constant="160" id="Um3-Xl-1yk"/>
                 <constraint firstItem="qZG-ve-5cv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="240" id="VZt-J8-IrP"/>
                 <constraint firstItem="qgd-1t-L7R" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="WzH-uZ-ksC"/>
                 <constraint firstAttribute="bottom" secondItem="3Km-kP-4AF" secondAttribute="bottom" constant="799" id="Xkp-Nr-yTZ"/>
                 <constraint firstItem="sdk-DE-Xgf" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="YHI-Wy-B4m"/>
                 <constraint firstItem="3Km-kP-4AF" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="12" id="YYQ-Ma-VV1"/>
                 <constraint firstItem="lR8-ei-87x" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="630" id="alA-QO-pGM"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qZG-ve-5cv" secondAttribute="trailing" constant="10" id="axc-VY-ZWT"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="qZG-ve-5cv" secondAttribute="trailing" id="axc-VY-ZWT"/>
                 <constraint firstItem="qgd-1t-L7R" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="445" id="b4v-0l-FVR"/>
                 <constraint firstAttribute="trailing" secondItem="O8v-fc-r1n" secondAttribute="trailing" constant="270" id="bEx-yi-8GG"/>
                 <constraint firstItem="vNy-Fe-V5f" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="130" id="dBj-SN-RDH"/>
@@ -221,7 +221,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3Km-kP-4AF" secondAttribute="trailing" constant="315" id="oIi-u1-Syg"/>
                 <constraint firstItem="Nn7-9o-36Y" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="130" id="oZm-Zq-vRt"/>
                 <constraint firstAttribute="trailing" secondItem="Nn7-9o-36Y" secondAttribute="trailing" constant="270" id="otk-4o-Ef2"/>
-                <constraint firstItem="WpX-Lo-aay" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="40" id="pOT-EV-q4j"/>
+                <constraint firstItem="WpX-Lo-aay" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="pOT-EV-q4j"/>
                 <constraint firstItem="sdk-DE-Xgf" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="rPX-E3-CHE"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="0NP-ze-g1W" secondAttribute="trailing" constant="10" id="vt0-Uq-EMG"/>
             </constraints>

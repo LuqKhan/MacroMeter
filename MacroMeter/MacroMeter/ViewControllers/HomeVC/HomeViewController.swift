@@ -48,7 +48,6 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
     var caloriesConsumed: Double?
     var carbsConsumed: Double?
    
-    let scannerVC = NutritionLabelScannerViewController()
     let date = Date()
     let calendar = Calendar.current
     let dateFormatter = DateFormatter()
@@ -57,7 +56,7 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
        
-        scannerVC.delegate = self
+        
         let day = calendar.component(.day, from: date)
         let month = calendar.component(.month, from: date)
         let year = calendar.component(.year, from: date)
@@ -196,9 +195,10 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
                 breakdownVC.modalPresentationStyle = .overFullScreen
                 self.present(breakdownVC, animated: true, completion: nil)
             } else {
-                
-                self.scannerVC.modalPresentationStyle = .overFullScreen
-                self.present(self.scannerVC, animated: true, completion: nil)
+                let scannerVC = NutritionLabelScannerViewController()
+                scannerVC.delegate = self
+                scannerVC.modalPresentationStyle = .overFullScreen
+                self.present(scannerVC, animated: true, completion: nil)
             }
             
         }
