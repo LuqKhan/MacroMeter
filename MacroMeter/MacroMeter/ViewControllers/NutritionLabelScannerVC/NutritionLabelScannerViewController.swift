@@ -149,24 +149,25 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     func addRecognizedText(recognizedText: [VNRecognizedTextObservation]) {
         showLabels()
         
-        if self.isNutritionLabel(recognizedText: recognizedText) {
-            
-            let caloriesPerServing = Double(parseCalories(recognizedText: recognizedText) ?? "")?.rounded(toPlaces: 1)
-            let carbsPerServing = Double(parseCarbs(recognizedText: recognizedText) ?? "")?.rounded(toPlaces: 1)
-            let fatPerServing = Double(parseFat(recognizedText: recognizedText) ?? "")?.rounded(toPlaces: 1)
-            let proteinPerServing = Double(parseProtein(recognizedText: recognizedText) ?? "")?.rounded(toPlaces: 1)
+        if let calories = parseCalories(recognizedText: recognizedText),
+            let caloriesPerServing = Double(calories),
+        let carbs = parseCarbs(recognizedText: recognizedText),
+            let carbsPerServing = Double(carbs),
+        let fat = parseFat(recognizedText: recognizedText),
+            let fatPerServing = Double(fat),
+        let protein = parseProtein(recognizedText: recognizedText),
+            let proteinPerServing = Double(protein),
+        self.isNutritionLabel(recognizedText: recognizedText) {
             
             self.doubleFat = fatPerServing
             self.doubleCals = caloriesPerServing
             self.doubleCarbs = carbsPerServing
             self.doubleProtein = proteinPerServing
             
-            
-            
-            self.caloriesLabel.text = "Calories: \(caloriesPerServing ?? 0.0)"
-            self.proteinLabel.text = "Protein: \(proteinPerServing ?? 0.0)g"
-            self.carbsLabel.text = "Carbohydrate: \(carbsPerServing ?? 0.0)g"
-            self.fatLabel.text = "Fat: \(fatPerServing ?? 0.0)g"
+            self.caloriesLabel.text = "Calories: \(caloriesPerServing )"
+            self.proteinLabel.text = "Protein: \(proteinPerServing )g"
+            self.carbsLabel.text = "Carbohydrate: \(carbsPerServing )g"
+            self.fatLabel.text = "Fat: \(fatPerServing )g"
             
             let intVal = Int(self.servingsEatenSlider.value)
             self.servingSizeValue.text = "\(intVal)"
@@ -176,10 +177,11 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
             self.servingsEatenSlider.minimumValue = 0.25
             self.servingsInstructionsLabel.alpha = 1
             
-            
         } else {
-            presentAlert()
+            self.hideLabels()
+        presentAlert()
         }
+        
     }
     
     
@@ -559,7 +561,6 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
             let fatPerServing = self.finalFat,
             let carbsPerServing = self.finalCarbs,
             let caloriesPerServing = self.finalCals {
-            
             self.delegate?.retrieveNutritionData(fat: fatPerServing, protein: proteinPerServing, carbs: carbsPerServing, cals: caloriesPerServing)
             self.dismiss(animated: true, completion: nil)
             

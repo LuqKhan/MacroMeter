@@ -10,7 +10,6 @@ import Foundation
 
 class MacroCalculator {
     
-    
     var height: String
     var age: String
     var weight: String

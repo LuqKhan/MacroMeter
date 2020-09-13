@@ -36,8 +36,8 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
     @IBOutlet weak var carbsLabel: UILabel!
     
     @IBOutlet weak var fatLabel: UILabel!
-     
-   
+    
+    
     
     let menuDropDown = DropDown()
     let mealFrequencyDropDown = DropDown()
@@ -47,55 +47,53 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
     var proteinConsumed: Double?
     var caloriesConsumed: Double?
     var carbsConsumed: Double?
-   
-    let date = Date()
+    let displayDate = Date()
     let calendar = Calendar.current
     let dateFormatter = DateFormatter()
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-       
+    
+    didDayPass()
         
-        let day = calendar.component(.day, from: date)
-        let month = calendar.component(.month, from: date)
-        let year = calendar.component(.year, from: date)
+        let day = calendar.component(.day, from: displayDate)
+        let month = calendar.component(.month, from: displayDate)
+        let year = calendar.component(.year, from: displayDate)
         dateFormatter.dateFormat  = "EEEE"
         let dayDateFormatter = DateFormatter()
         dayDateFormatter.dateFormat = "LLLL"
-        let nameOfMonth = dateFormatter.string(from: date)
-        let dayInWeek = dayDateFormatter.string(from: date)
+        let nameOfMonth = dateFormatter.string(from: displayDate)
+        let dayInWeek = dayDateFormatter.string(from: displayDate)
         
         self.dateLabel.text = "\(nameOfMonth), \(dayInWeek) \(day) \(year)"
-        
-        if calendar.isDateInYesterday(date) {
-            UserDefaults.standard.set(0, forKey: "fatPerServing")
-            UserDefaults.standard.set(0, forKey: "proteinPerServing")
-            UserDefaults.standard.set(0, forKey: "carbsPerServing")
-             UserDefaults.standard.set(0, forKey: "caloriesPerServing")
-            
-        }
-    
-        
-        
         let totalFat = UserDefaults.standard.double(forKey: "fatPerServing")
         let totalProtein = UserDefaults.standard.double(forKey: "proteinPerServing")
         let totalCarbs = UserDefaults.standard.double(forKey: "carbsPerServing")
         let totalCalories = UserDefaults.standard.double(forKey: "caloriesPerServing")
         
         self.dailyCaloriesLabel.text = "Calories: \(totalCalories.rounded(toPlaces: 1))"
-               self.dailyFatLabel.text = "Fat: \(totalFat.rounded(toPlaces: 1))g"
-               self.dailyCarbsLabel.text = "Carbohydrate: \(totalCarbs.rounded(toPlaces: 1))g"
-               self.dailyProteinLabel.text = "Protein: \(totalProtein.rounded(toPlaces: 1))g"
-               self.pieChart.models.removeAll()
-               self.pieChart.models = [PieSliceModel(value: totalFat, color: .yellow), PieSliceModel(value: totalCalories, color: .blue), PieSliceModel(value: totalProtein, color: .green), PieSliceModel(value: totalCarbs, color: .red)]
-        
-        
+        self.dailyFatLabel.text = "Fat: \(totalFat.rounded(toPlaces: 1))g"
+        self.dailyCarbsLabel.text = "Carbohydrate: \(totalCarbs.rounded(toPlaces: 1))g"
+        self.dailyProteinLabel.text = "Protein: \(totalProtein.rounded(toPlaces: 1))g"
+        self.pieChart.models.removeAll()
+        self.pieChart.models = [PieSliceModel(value: totalFat, color: .yellow), PieSliceModel(value: totalCalories, color: .blue), PieSliceModel(value: totalProtein, color: .green), PieSliceModel(value: totalCarbs, color: .red)]
         
         self.fatsConsumed = totalFat
         self.proteinConsumed = totalProtein
         self.carbsConsumed = totalCarbs
         self.caloriesConsumed = totalCalories
+    }
+    
+    func didDayPass() {
+        if let storedDate = UserDefaults.standard.object(forKey: "displayDate") as? Date, calendar.isDateInYesterday(storedDate) {
+                 UserDefaults.standard.set(0.0, forKey: "fatPerServing")
+                 UserDefaults.standard.set(0.0, forKey: "proteinPerServing")
+                 UserDefaults.standard.set(0.0, forKey: "carbsPerServing")
+                 UserDefaults.standard.set(0.0, forKey: "caloriesPerServing")
+             } else {
+            UserDefaults.standard.set(displayDate, forKey: "displayDate")
+             }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,33 +105,24 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
         self.menuDropDown.hide()
     }
     
-   
+    
     func retrieveNutritionData(fat: Double, protein: Double, carbs: Double, cals: Double) {
-        
-        if calendar.isDateInYesterday(date) {
-                   UserDefaults.standard.set(0, forKey: "fatPerServing")
-                   UserDefaults.standard.set(0, forKey: "proteinPerServing")
-                   UserDefaults.standard.set(0, forKey: "carbsPerServing")
-                    UserDefaults.standard.set(0, forKey: "caloriesPerServing")
-                   
-               }
+       didDayPass()
         
         
-               var totalProtein = UserDefaults.standard.double(forKey: "proteinPerServing")
-                   totalProtein = totalProtein + protein
-                   var totalCarbs = UserDefaults.standard.double(forKey: "carbsPerServing")
-                   totalCarbs = totalCarbs + carbs
-                   var totalFat = UserDefaults.standard.double(forKey: "fatPerServing")
-                   totalFat = totalFat + fat
-                   var totalCalories = UserDefaults.standard.double(forKey: "caloriesPerServing")
-                   totalCalories = totalCalories + cals
-                   
-                   UserDefaults.standard.set(totalProtein, forKey: "proteinPerServing")
-                   UserDefaults.standard.set(totalFat, forKey: "fatPerServing")
-                   UserDefaults.standard.set(totalCarbs, forKey: "carbsPerServing")
-                   UserDefaults.standard.set(totalCalories, forKey: "caloriesPerServing")
+        var totalProtein = UserDefaults.standard.double(forKey: "proteinPerServing")
+        totalProtein = totalProtein + protein
+        var totalCarbs = UserDefaults.standard.double(forKey: "carbsPerServing")
+        totalCarbs = totalCarbs + carbs
+        var totalFat = UserDefaults.standard.double(forKey: "fatPerServing")
+        totalFat = totalFat + fat
+        var totalCalories = UserDefaults.standard.double(forKey: "caloriesPerServing")
+        totalCalories = totalCalories + cals
         
-        //when the day is over make sure to reset, use notification observer?
+        UserDefaults.standard.set(totalProtein, forKey: "proteinPerServing")
+        UserDefaults.standard.set(totalFat, forKey: "fatPerServing")
+        UserDefaults.standard.set(totalCarbs, forKey: "carbsPerServing")
+        UserDefaults.standard.set(totalCalories, forKey: "caloriesPerServing")
         
         self.dailyCaloriesLabel.text = "Calories: \(totalCalories.rounded(toPlaces: 1))"
         self.dailyFatLabel.text = "Fat: \(totalFat.rounded(toPlaces: 1))g"
@@ -142,11 +131,9 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
         self.pieChart.models.removeAll()
         self.pieChart.models = [PieSliceModel(value: totalFat, color: .yellow), PieSliceModel(value: totalCalories, color: .blue), PieSliceModel(value: totalProtein, color: .green), PieSliceModel(value: totalCarbs, color: .red)]
         
-       }
+    }
     
     func prepareUI() {
-        
-
         self.proteinGreen.layer.cornerRadius = 3
         self.carbRed.layer.cornerRadius = 3
         self.caloriesBlue.layer.cornerRadius = 3
@@ -162,10 +149,10 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
             let macroCalc = MacroCalculator(height: height, age: age, gender: gender, weight: weight, exerciseFreq: freq, goal: goal)
             self.macroCalculator = macroCalc
         }
-            self.caloriesLabel.text = String(macroCalculator.calories)
-                  self.carbsLabel.text = "\(self.macroCalculator.macros[1])g"
-                  self.proteinLabel.text = "\(self.macroCalculator.macros[0])g"
-                  self.fatLabel.text = "\(self.macroCalculator.macros[2])g"
+        self.caloriesLabel.text = String(macroCalculator.calories)
+        self.carbsLabel.text = "\(self.macroCalculator.macros[1])g"
+        self.proteinLabel.text = "\(self.macroCalculator.macros[0])g"
+        self.fatLabel.text = "\(self.macroCalculator.macros[2])g"
         
         menuDropDown.dismissMode = .automatic
         menuDropDown.textColor = .white
@@ -202,5 +189,25 @@ class HomeViewController: UIViewController, NutritionDataDelegate {
             }
             
         }
+    }
+}
+
+extension Date {
+    static var yesterday: Date { return Date().dayBefore }
+    static var tomorrow:  Date { return Date().dayAfter }
+    var dayBefore: Date {
+        return Calendar.current.date(byAdding: .day, value: -1, to: noon)!
+    }
+    var dayAfter: Date {
+        return Calendar.current.date(byAdding: .day, value: 1, to: noon)!
+    }
+    var noon: Date {
+        return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
+    }
+    var month: Int {
+        return Calendar.current.component(.month,  from: self)
+    }
+    var isLastDayOfMonth: Bool {
+        return dayAfter.month != month
     }
 }
