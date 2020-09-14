@@ -5,6 +5,6 @@
 # Features
 
 Calculate daily macros.  
-See breakdown of macros/peal.  
+See breakdown of macros/meal.  
 Log macros.  
 Scan nutrition labels to parse macros.  
