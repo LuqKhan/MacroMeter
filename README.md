@@ -4,4 +4,7 @@
   
 # Features
 
-Calculate Daily Macros
+Calculate daily macros.
+See breakdown of macros/peal.
+Log macros.
+Scan nutrition labels to parse macros.
