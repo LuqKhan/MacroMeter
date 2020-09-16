@@ -34,7 +34,6 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     @IBOutlet weak var servingsInstructionsLabel: UILabel!
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var scanButton: UIButton!
-    
     @IBOutlet weak var proteinGreen: UIView!
     @IBOutlet weak var yellowFat: UIView!
     var request = VNRecognizeTextRequest()
@@ -47,7 +46,6 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
     var doubleFat: Double?
     var doubleProtein: Double?
     var doubleCals: Double?
-    
     var finalCals: Double?
     var finalCarbs: Double?
     var finalFat: Double?
@@ -156,8 +154,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
             let fat = parseFat(recognizedText: recognizedText),
             let fatPerServing = Double(fat),
             let protein = parseProtein(recognizedText: recognizedText),
-            let proteinPerServing = Double(protein),
-            self.isNutritionLabel(recognizedText: recognizedText) {
+            let proteinPerServing = Double(protein){
             
             self.doubleFat = fatPerServing
             self.doubleCals = caloriesPerServing
@@ -427,8 +424,6 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         caloriesText = caloriesText.lowercased()
         print(caloriesText)
         
-        
-        //LAST EDGE CASE IS CALORIES PER SERVING!!!!!!!! SOMETIMES PERSERVING IS BEING USED!!!!!!!!!!!!!!!!!!!!!!!!!!!! KEEP DOING THESE EDGE CASES,
         let caloriesPattern = "calories(\\d+)"
         let longCaloriesPattern = "calories\\s+(\\d+)"
         //per serving90
@@ -547,15 +542,16 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         }
         
         @IBAction func saveButtonTapped(_ sender: UIButton) {
-            self.hideLabels()
             if let proteinPerServing = self.finalProtein,
                 let fatPerServing = self.finalFat,
                 let carbsPerServing = self.finalCarbs,
                 let caloriesPerServing = self.finalCals {
                 self.delegate?.retrieveNutritionData(fat: fatPerServing, protein: proteinPerServing, carbs: carbsPerServing, cals: caloriesPerServing)
+                self.hideLabels()
                 self.dismiss(animated: true, completion: nil)
                 
             }
+             self.dismiss(animated: true, completion: nil)
             
         }
         func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
