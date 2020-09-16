@@ -4,8 +4,7 @@
   
 # Features
 
-Calculate daily macros.
-See breakdown of macros/meal.  
+Calculate daily macros and see breakdown of macros/meal.  
 Log macros.  
 Scan nutrition labels to parse macros.  
 <img src="https://github.com/LuqKhan/MacroMeter/blob/master/MacroMeter/DailyMacros.png" width="200" height="380">. 
