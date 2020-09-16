@@ -275,6 +275,7 @@ class NutritionLabelScannerViewController: UIViewController, VNDocumentCameraVie
         let longFatPattern = "total\\s+fat\\s+(\\d+)"
         let shortFatPattern =  "total\\s+fat(\\d+)"
         let cutOffFatPattern = "fat\\s+(\\d+)"
+        
         if let regex = try? NSRegularExpression(pattern: longFatPattern, options: .init()) {
             if let match = regex.firstMatch(in: fatText, options: [], range: NSRange(location: 0, length: fatText.count)) {
                 
