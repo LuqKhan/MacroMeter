@@ -5,7 +5,7 @@
 # Features
 
 Calculate daily macros.
-![Test Image 7](https://github.com/LuqKhan/MacroMeter/master/DailyMacros.png)
+(https://github.com/LuqKhan/MacroMeter/master/DailyMacros.png)
 See breakdown of macros/meal.  
 Log macros.  
 Scan nutrition labels to parse macros.  
