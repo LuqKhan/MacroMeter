@@ -5,7 +5,7 @@
 # Features
 
 Calculate daily macros.
-<img src="https://github.com/LuqKhan/MacroMeter/blob/master/MacroMeter/DailyMacros.png" width="100" height="200">. 
+<img src="https://github.com/LuqKhan/MacroMeter/blob/master/MacroMeter/DailyMacros.png" width="120" height="220">. 
 See breakdown of macros/meal.  
 Log macros.  
 Scan nutrition labels to parse macros.  
