@@ -8,4 +8,4 @@ Calculate daily macros.
 See breakdown of macros/meal.  
 Log macros.  
 Scan nutrition labels to parse macros.  
-<img src="https://github.com/LuqKhan/MacroMeter/blob/master/MacroMeter/DailyMacros.png" width="120" height="220">. 
+<img src="https://github.com/LuqKhan/MacroMeter/blob/master/MacroMeter/DailyMacros.png" width="200" height="300">. 
